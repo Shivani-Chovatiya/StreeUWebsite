@@ -1,0 +1,407 @@
+{
+  "translation": {
+    "homepagefreeQuestions1": "When can I get my next promotion within the next two years if I make an effort?",
+    "homepagefreeQuestions2": "When am I likely to get married if I make an effort?",
+    "homepagefreeQuestions3": "When am I likely to meet my prospective spouse if I make an effort?",
+    "homepagefreeQuestions4": "Predict my health during the next 1 year.",
+    "homepagefreeQuestions5": "Other 5+ free questions",
+    "homepagepaidPackagesprice1": "₹500",
+    "homepagepaidPackagesprice2": "₹1100",
+    "homepagepaidPackagesprice3": "₹2100",
+    "homepagepaidPackagesprice4": "₹5100",
+    "homepagepaidPackagesdetails1": "5 Credits • 1 Question • Delivered within 24 Hours",
+    "homepagepaidPackagesdetails2": "11 Credits • 5 Questions • Delivered within 7 Days",
+    "homepagepaidPackagesdetails3": "21 Credits • 5 Questions • Delivered within 2 Days",
+    "homepagepaidPackagesdetails4": "51 Credits • 5 Questions • Delivered within 24 Hours",
+    "hero": {
+      "title": "Welcome To Steer-U",
+      "description": "Integrating Future Predictions With Psychological Counselling. Get Personalized Insights And Guidance Tailored For You. Save Your Valuable Time & Money.",
+      "btnTherapy": "Get Therapy →",
+      "btnPredict": "Predict Your Future →"
+    },
+
+    "about": {
+      "title": "About Steer-U",
+      "description1": "Steer-U provides instant future predictions with your birth details (using an advanced computerised program based on the ancient Vedic Astrology) and online Psychological Counselling services by the RCI certified Psychologists.",
+      "description2": "With Steer-U, you can Steer Your Happiness with the Astrology & Psychology services under one roof (2 free questions about your future life and the Free Therapy tips plus the paid services).",
+      "description3": "Save on your valuable time and energy without speaking to any astrologer or going to a Psychotherapy clinic. You are not required to disclose your identity. Confidentiality is guaranteed."
+    },
+
+    "futurePrediction": {
+      "pageTitle": "Future Prediction",
+      "title": "Future Prediction Questions",
+      "subtitle": "Access our in-house core prediction engine with free, referral-unlocked, and paid questions. Choose from tiered packages and get accurate, personalized insights.",
+      "login": "Log In",
+      "credit1": "1 Credit",
+      "credit2": "2 Credit",
+      "credit3": "3 Credit",
+      "customizedQuestion": "Customized Question",
+      "freeTitle": "Free Questions",
+      "paidTitle": "Paid Packages",
+      "cta": "Explore Future Questions →",
+      "questions": {
+        "credit1": ["What will happen in my career?", "Will I get promotion?"],
+        "credit2": ["How is my marriage life?", "Will I settle abroad?"],
+        "credit3": [
+          "Business growth prediction?",
+          "Financial stability?",
+          "Property investment?"
+        ]
+      },
+      "Compatibility": "Compatibility",
+      "Birth_Rectification": "Birth Rectification",
+      "form": {
+        "firstPerson": "First Person",
+        "secondPerson": "Second Person",
+        "personName": "Person",
+        "birthDate": "Birth Date",
+        "birthTime": "Birth Time",
+        "location": "Location",
+        "selectQuestion": "Please Select The Question",
+        "customizedQuestionTitle": "You Can Also Ask Customized Question",
+        "customizedQuestionSubtitle": "Ask Whatever you want in just 10 Credits",
+        "customizedPlaceholder": "Type your question here...",
+        "submit": "Submit",
+        "question1": "Question 1",
+        "question2": "Question 2",
+        "question3": "Question 3",
+        "question4": "Question 4",
+        "question5": "Question 5"
+      }
+    },
+
+    "difference": {
+      "title": "How Steer-u is Different...",
+      "description": "Steer-U provides clarity to your uncertain future with astrology based online accurate future predictions instantly with its world-in-class highly reliable computerised program without having to speak to any astrologer or spending time on complex planets or horoscope while maintaining your confidentiality. Our Psychological Counseling section provides Free Therapy Tips in 21 areas apart from the paid therapy by our RCI approved Psychologists.",
+      "description2": "You can write the next episode of your life yourself."
+    },
+
+    "psychology": {
+      "title": "Psychological Counseling",
+      "subtitle": "Access 21 counselling topics including Anxiety, Depression, ADHD, Addiction, and more. Use free therapy videos or book paid one-on-one sessions with professional therapists.",
+      "readMore": "Read more →",
+      "freeTipsTitle": "Free Therapy Tips",
+      "freeTipsDesc": "Integrating future predictions with psychological counselling. Get personalized insights and guidance tailored for you.Save your valuable time & money",
+      "viewTips": "View Tips",
+      "bookTherapy": "Book your therapy",
+      "topics": {
+        "anxiety": "Anxiety",
+        "depression": "Depression",
+        "learningDelays": "Learning Delays",
+        "addiction": "Addiction",
+        "emotionalAbuseTrauma": "Emotional Abuse / Trauma",
+        "dementia": "Dementia",
+        "behavioralChallenges": "Behavioral Challenges",
+        "developmentalDelays": "Developmental Delays",
+        "relationshipIssues": "Relationship Issues & Conflicts",
+        "fearsPhobias": "Fears & Phobias",
+        "autism": "Autism Spectrum Disorder (ASD)",
+        "impairments": "Impairments",
+        "adhd": "ADHD",
+        "ocd": "Obsessive-Compulsive Disorder (OCD)",
+        "intellectualIssues": "Intellectual Issues",
+        "personalityDisorders": "Personality Disorders",
+        "parenting": "Parenting",
+        "ptsd": "Post-Traumatic Stress Disorder (PTSD)",
+        "selfEsteem": "Self-Esteem",
+        "sld": "Specific Learning Disability (SLD)",
+        "socialAnxiety": "Social Anxiety"
+      },
+      "tipsContent": {
+        "anxiety": "Anxiety is a natural response to stress. Common symptoms include restlessness, worry, difficulty concentrating, and physical symptoms like rapid heartbeat. Coping strategies include deep breathing exercises, mindfulness meditation, regular physical activity, and maintaining a consistent sleep schedule. Support from friends and family can significantly aid recovery. If symptoms persist, consider seeking professional help.",
+        "depression": "Depression affects mood, energy, and daily functioning. Symptoms may include persistent sadness, loss of interest, fatigue, and changes in sleep or appetite. Recovery often involves a combination of therapy, lifestyle changes, and possibly medication. Building a support network and engaging in activities you enjoy can help. Professional guidance is recommended for persistent symptoms.",
+        "learningDelays": "Learning delays can affect reading, writing, or math skills. Early intervention and structured support are key. Strategies include breaking tasks into smaller steps, using visual aids, and personalized learning plans. Patience and encouragement from caregivers play a vital role in progress.",
+        "addiction": "Addiction involves compulsive substance use or behavior despite harmful consequences. Recovery typically requires professional support, therapy, and sometimes medication. Building a strong support system and avoiding triggers are important. Family involvement can greatly enhance recovery outcomes.",
+        "emotionalAbuseTrauma": "Emotional abuse and trauma can have lasting effects on mental health. Healing involves creating safety, processing emotions with professional support, and rebuilding self-worth. Support from trusted loved ones and trauma-informed therapy are essential for recovery.",
+        "dementia": "Dementia affects memory, thinking, and daily functioning. Care strategies include maintaining routines, clear communication, and a supportive environment. Family education and caregiver support are crucial for managing the condition effectively.",
+        "behavioralChallenges": "Behavioral challenges can stem from various factors. Understanding triggers and implementing consistent responses helps. Positive reinforcement and structured environments can improve outcomes. Professional assessment may guide appropriate interventions.",
+        "developmentalDelays": "Developmental delays can affect motor, speech, or social skills. Early intervention with occupational, speech, or behavioral therapy can make a significant difference. Family support and patience are essential components of progress.",
+        "relationshipIssues": "Relationship conflicts often involve communication breakdowns. Improving listening skills, expressing needs clearly, and seeking couples counseling can help. Understanding each other's perspectives fosters healthier relationships.",
+        "fearsPhobias": "Fears and phobias are intense, irrational fears of specific objects or situations. Gradual exposure therapy and cognitive techniques can help reduce anxiety. Professional support can provide structured approaches to overcoming phobias.",
+        "autism": "Autism Spectrum Disorder (ASD) involves differences in social communication and behavior. Support includes structured routines, sensory accommodations, and tailored interventions. Family and peer support contribute to positive outcomes.",
+        "impairments": "Impairments may require adaptive strategies and accommodations. Professional assessment can identify individual needs. Support from family and community resources helps in managing daily life effectively.",
+        "adhd": "ADHD affects attention, impulse control, and activity level. Strategies include structure, routines, breaks, and sometimes medication. Understanding and support from family and educators can improve focus and productivity.",
+        "ocd": "OCD involves unwanted thoughts and repetitive behaviors. Cognitive-behavioral therapy, especially exposure and response prevention, is effective. Support from loved ones and professional treatment can reduce symptoms significantly.",
+        "intellectualIssues": "Intellectual challenges may require individualized support and accommodations. Early intervention and educational support can help. Family involvement and community resources play a key role in quality of life.",
+        "personalityDisorders": "Personality disorders affect how thoughts and behaviors are managed. Long-term therapy often helps. Support from family and a stable environment can improve outcomes.",
+        "parenting": "Parenting challenges can arise from various factors. Building a supportive network, learning effective communication, and seeking guidance when needed can help. Positive parenting strategies promote healthy child development.",
+        "ptsd": "PTSD can develop after traumatic events. Symptoms include flashbacks, avoidance, and hyperarousal. Trauma-focused therapy and support from loved ones are important for healing. Professional help is recommended.",
+        "selfEsteem": "Self-esteem affects how we view ourselves. Building self-esteem involves positive self-talk, setting achievable goals, and surrounding yourself with supportive people. Therapy can help address underlying beliefs.",
+        "sld": "Specific Learning Disability affects particular academic skills. Accommodations, specialized instruction, and support from educators can help. Early identification and intervention improve outcomes.",
+        "socialAnxiety": "Social anxiety involves fear of social situations. Gradual exposure and cognitive techniques can help. Support from friends and professional therapy can reduce anxiety and improve social confidence."
+      },
+      "therapistName": "Dr. Sachidanand",
+      "therapistQualification": "Ph.D, M.A. [Clinical Psych... (Rehabilitation)]",
+      "therapistPrice": "₹1500",
+      "therapistPriceStrike": "₹1800",
+      "therapistPerSession": "/Session",
+      "therapistTags": [
+        "Children/Adolescent",
+        "Individual Counseling",
+        "Couple Coun...",
+        "Clinical Issues",
+        "Rehabilitation"
+      ],
+      "calendar": "Calendar",
+      "bookingModal": {
+        "selectSlot": "Select Booking Slot",
+        "confirmSlot": "Confirm Slot",
+        "choosePackage": "Choose Package",
+        "sessionPack6": "6 Session Pack",
+        "bestForBeginners": "Best for beginners",
+        "selectPackage": "Select Package",
+        "sessionPack10": "10 Session Pack",
+        "saveMore": "Save more",
+        "bookingSuccessful": "Booking Successful",
+        "therapistLink": "Your therapist will provide session link.",
+        "close": "Close",
+        "time": {
+          "morning": "Morning",
+          "afternoon": "Afternoon",
+          "evening": "Evening"
+        }
+      },
+      "paidTherapyTherapistName": "Dr. Sachidananda Nath",
+      "paidTherapyTitle": "Paid Therapy",
+      "paidTherapyDesc": "Book your therapy sessions with expert psychologists and begin your journey toward a happier, balanced life.",
+      "allSessionsOnline": "All sessions will be conducted online.",
+      "sessionPrice": "₹1500",
+      "perSession": "/session",
+      "qualificationLabel": "Qualification",
+      "qualification": "PH.D., M.A. (Counselling Psychology), PGDP (Depression Studies), NET Qualified, COFM-RCI Registered",
+      "experienceLabel": "Experience",
+      "experience": "8+ Years, RCI registered",
+      "languageLabel": "Language",
+      "language": "English, Hindi, Odia",
+      "languageShort": "English, Hindi",
+      "book": "Calendar",
+      "viewDetails": "Book an Appointment.",
+      "sessionTags": {
+        "dark": [
+          "Children / Adolescent",
+          "Microcosms",
+          "Depression",
+          "Addiction",
+          "Developmental Delays",
+          "Fears & Phobias",
+          "Impairments",
+          "OCD",
+          "Personality Disorders",
+          "PTSD",
+          "SLD"
+        ],
+        "orange": [
+          "Individual Counselling",
+          "Couple Counselling",
+          "Behavioural Trauma",
+          "Clinical Issues",
+          "Rehabilitation"
+        ]
+      },
+      "freeAssessTitle": "Free Assessments",
+      "freeAssessDesc": "Customer can input 8-10 symptoms which will help Psychotherapist to understand customer’s specific challenge well ahead of the paid session.",
+      "paidAssessTitle": "Paid Assessments",
+      "paidAssessDesc": "Experienced RCI registered Psychotherapist provide best-in-class counselling, 20+ assessments, and Hypnotherapy through video session.",
+      "hypnoTitle": "Hypnotherapy",
+      "hypnoDesc": "Customer can input 8-10 symptoms which will help Psychotherapist to understand customer’s specific challenge well ahead of the paid session."
+    },
+    "header": {
+      "home": "Home",
+      "about": "About Us",
+      "services": "Services",
+      "hypnotherapy": "Hypnotherapy",
+      "contact": "Contact Us",
+      "pricing": "Pricing",
+      "futurePrediction": "Future Prediction",
+      "psychologicalCounselling": "Psychological Counselling",
+      "futurePrediction1Credit": "1 Credit Question",
+      "futurePrediction2Credit": "2 Credit Question",
+      "futurePrediction3Credit": "3 Credit Question",
+      "futurePredictionCustomized": "Customized Question",
+      "futurePredictionBirthTime": "Birth time Rectification",
+      "futurePredictionCompatibility": "Compatibility",
+      "psychologicalCounsellingFreeTherapy": "Free Therapy",
+      "psychologicalCounsellingPaidTherapy": "Paid Therapy",
+      "psychologicalCounsellingFreeAssessments": "Free Assessments",
+      "psychologicalCounsellingPaidAssessments": "Paid Assessments",
+      "psychologicalCounsellingHypnotherapy": "Hypnotherapy"
+    },
+    "comingSoon": {
+      "badge": "In Development",
+      "title": "Coming Soon",
+      "message": "We are working on something exciting. Stay tuned!"
+    },
+    "login": {
+      "welcome": "Welcome to Steer-U👋",
+      "subtitle": "Kindly fill in your details below to create an account",
+      "phonePlaceholder": "Enter Your Phone No.",
+      "keepSignedIn": "Keep me signed in",
+      "forgotPassword": "Forgot password?",
+      "check1": "By Logging in, you agree to our Terms & Conditions and Privacy Policy",
+      "check2": "Are you 18+?",
+      "getOtp": "Get OTP",
+      "enterOtp": "Enter OTP",
+      "resendOtp": "Didn't receive a message? Resend OTP",
+      "verifyOtp": "Verify OTP"
+    },
+    "testimonials": {
+      "mainTitle": "OUR HAPPY CLIENT SAY ABOUT STEER-U",
+      "subTitle": "What Our Clients Say About Us",
+      "items": [
+        {
+          "name": "James Pattinson",
+          "role": "Corporate Wellness Coordinator",
+          "description": "Using the Emotion AI and EEG verified Adaptive music session has completely changed how I approach my mental health. The insights are invaluable and have made a significant difference in my daily life."
+        },
+        {
+          "name": "Greg Stuart",
+          "role": "Tech Entrepreneur",
+          "description": "The Emotion AI and EEG verified Adaptive music session not only helped me understand my stress triggers but also gave me the tools to manage them better. I've seen a noticeable improvement in my productivity and overall wellbeing."
+        },
+        {
+          "name": "Trevor Mitchell",
+          "role": "Clinical Psychologist",
+          "description": "As a mental health professional, incorporating this technology into my practice has been a game-changer. It's like having another tool that can read emotions and provide therapy, making my work more effective."
+        }
+      ]
+    },
+    "footer": {
+      "aboutTitle": "STEER-U",
+      "aboutDesc": "Steer-U provides instant future predictions with your birth details (using an advanced computerised program based on the ancient Vedic Astrology) and online Psychological Counselling services by the RCI certified Psychologists.",
+
+      "servicesTitle": "SERVICES",
+      "services": [
+        { "label": "Future Prediction", "path": "/future-prediction" },
+        { "label": "Compatibility", "path": "/compatibility" },
+        { "label": "Hypnotherapy", "path": "/hypnotherapy" },
+        { "label": "Birth Time Rectification", "path": "/birth-rectification" },
+        { "label": "Free Therapy", "path": "/free-therapy" },
+        { "label": "Paid Therapy", "path": "/paid-therapy" },
+        { "label": "Assessments", "path": "/assessments" }
+      ],
+
+      "linkTitle": "LINK",
+      "links": [
+        { "label": "Terms Of Use", "path": "/terms" },
+        { "label": "Privacy Policy", "path": "/privacy" }
+      ],
+
+      "contactTitle": "CONTACT",
+      "contactPhone": "+12 2629 7828",
+      "contactEmail": "STEER-U@domain.com",
+      "contactAddress": "112 Washtucna, Washington",
+      "mapAlt": "Location map",
+      "locationTitle": "LOCATION",
+      "copyright": "copyright@2023 Boodoo All Right Reserved"
+    },
+    "aboutus": {
+      "badge": "✨Your first 1 credit question is on us!",
+      "title": "About us",
+      "subtitle": "Integrating future predictions with psychological counselling. Get personalized insights and guidance tailored for you. Save your valuable time & money",
+
+      "sectionTitle": "Your Star Determines Your Life's Journey",
+
+      "description": "Steer-U provides clarity to your uncertain future with astrology based online accurate future predictions instantly with its world-in-class highly reliable computerised program without having to speak to any astrologer or spending time on complex planets or horoscope while maintaining your confidentiality. Our Psychological Counseling section provides Free Therapy Tips in 21 areas apart from the paid therapy by our RCI approved Psychologists. You can write the next episode of your life yourself.",
+
+      "blessingTitle": "With The Blessings Of Late Mrs. Madhuri Goyal (1945 – 1999)",
+      "blessingDescription": "This app is lovingly dedicated to the memory of my late mother, Mrs. Madhuri Goyal, whose guidance, love, and blessings continue to inspire every step of this journey. May her spirit continue to guide and bless all who seek insight through this platform.",
+
+      "welcomeTitle": "WELCOME",
+      "welcomeHeading": "HELLO, WELCOME TO STEER-U",
+      "welcomeDescription": "Steer-U provides instant future predictions with your birth details (using an advanced computerised program based on the ancient Vedic Astrology) and online Psychological Counselling services by the RCI certified Psychologists. With Steer-U, you can Steer Your Happiness with the Astrology & Psychology services under one roof (2 free questions about your future life and the Free Therapy tips plus the paid services). Save on your valuable time and energy without speaking to any astrologer or going to a Psychotherapy clinic. You are not required to disclose your identity. Confidentiality is guaranteed.",
+      "welcomeDescription2": "With Steer-U, you can Steer Your Happiness with the Astrology & Psychology services under one roof (2 free questions about your future life and the Free Therapy tips plus the paid services).",
+      "welcomeDescription3": "Save on your valuable time and energy without speaking to any astrologer or going to a Psychotherapy clinic. You are not required to disclose your identity. Confidentiality is guaranteed.",
+
+      "founder": "ZAINDAN G - FOUNDER STEER-U",
+
+      "faqTitle": "Frequently Asked Questions",
+
+      "membershipTitle": "LET’S BECOME MEMBERSHIP",
+      "membershipDescription": "Lorem ipsum dolor sit amet consectetur. Pellentesque nascetur sed tellus ut vehicula eu consectetur elit at. Nulla erat nunc nisl dui sed cras semper vitae. Tempor odio ullamcorper non sed dignissim eu.",
+      "membershipButton": "Get started"
+    },
+
+    "faq": [
+      {
+        "question": "What exactly does Steer-U provide?",
+        "answer": "Steer-U does not connect clients with astrologers. All future predictions are automated using Vedic astrology algorithms."
+      },
+      {
+        "question": "How much does online Future Prediction or online Psychological Counselling consultation cost for an individual?",
+        "answer": ""
+      },
+      {
+        "question": "Can Future Prediction and online Psychotherapy be used by overseas clients outside India?",
+        "answer": ""
+      },
+      {
+        "question": "Can I choose any one service?",
+        "answer": ""
+      },
+      {
+        "question": "In how many languages is online Psychological Counselling offered at Steer-U?",
+        "answer": ""
+      },
+      {
+        "question": "How is Steer-U 'The Right Choice' for my personal, emotional and mental wellbeing?",
+        "answer": ""
+      },
+      {
+        "question": "How can I start my online Psychological Counselling or Future Prediction at Steer-U?",
+        "answer": ""
+      },
+      {
+        "question": "What are the qualifications of the Psychotherapist at Steer-U?",
+        "answer": ""
+      },
+      {
+        "question": "Can I have the option of talking to an astrologer?",
+        "answer": ""
+      },
+      {
+        "question": "Does Steer-U provide Vedic horoscopes also?",
+        "answer": ""
+      },
+      {
+        "question": "How accurate are these Future Prediction answers?",
+        "answer": ""
+      },
+      {
+        "question": "Is there any package for online Psychotherapy and Future Prediction services?",
+        "answer": ""
+      },
+      {
+        "question": "Can Hypnotherapy be provided online? How effective is it?",
+        "answer": ""
+      },
+      {
+        "question": "Is it possible to change the Psychotherapist?",
+        "answer": ""
+      },
+      {
+        "question": "How different psychological assessments are conducted at Steer-U?",
+        "answer": ""
+      },
+      {
+        "question": "What all needs to be kept in mind during online Psychological Counselling?",
+        "answer": ""
+      },
+      {
+        "question": "Can I ask for a refund if I am not satisfied with the services?",
+        "answer": ""
+      }
+    ],
+
+    "stats": {
+      "partner": "PARTNER",
+      "teams": "TEAMS",
+      "happyClient": "HAPPY CLIENT",
+      "serviced": "SERVICED"
+    },
+    "invite": {
+      "title": "Invite Your Friends",
+      "subtitle": "Share your referral link and earn exciting rewards when your friends join!",
+      "button": "Refer Your Friend"
+    }
+  }
+}
