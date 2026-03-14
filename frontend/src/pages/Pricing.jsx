@@ -58,9 +58,9 @@ const Pricing = () => {
           <h1 className="text-primary text-sm md:text-xl text-center">
             Ask Anything in just 1 Credit 1 credit = ₹100only
           </h1>
-          <button className="bg-primary px-6 py-3 rounded-xl text-white font-bold">
+          {/* <button className="bg-primary px-6 py-3 rounded-xl text-white font-bold">
             Select
-          </button>
+          </button> */}
         </div>
       </div>
       <div className="p-2 md:p-6">
@@ -85,9 +85,9 @@ const Pricing = () => {
                   {item.details.split(" • ")[2]}
                 </li>
               </ul>
-              <button className="px-6 py-2 text-white font-bold bg-primary rounded-2xl">
+              {/* <button className="px-6 py-2 text-white font-bold bg-primary rounded-2xl">
                 Select Package
-              </button>
+              </button> */}
             </div>
           ))}
         </div>

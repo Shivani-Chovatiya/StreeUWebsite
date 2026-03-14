@@ -12,10 +12,12 @@ import diamond4 from "../assets/diamondimg/4.png";
 import diamond5 from "../assets/diamondimg/5.png";
 import Testimonials from "../components/Testimonials";
 import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router-dom";
 
 const HomePage = () => {
   const [activeCard, setActiveCard] = useState(null);
   const { t } = useTranslation();
+  const navigate = useNavigate();
   const freeQuestions = [
     t("homepagefreeQuestions1"),
     t("homepagefreeQuestions2"),
@@ -51,26 +53,31 @@ const HomePage = () => {
       img: diamond1,
       title: t("psychology.freeTipsTitle"),
       details: t("psychology.freeTipsDesc"),
+      path: "/psychological-counselling/free-therapy",
     },
     {
       img: diamond2,
       title: t("psychology.paidTherapyTitle"),
       details: t("psychology.paidTherapyDesc"),
+      path: "/psychological-counselling/paid-therapy",
     },
     {
       img: diamond3,
       title: t("psychology.freeAssessTitle"),
       details: t("psychology.freeAssessDesc"),
+      path: "/psychological-counselling/free-assessments",
     },
     {
       img: diamond4,
       title: t("psychology.paidAssessTitle"),
       details: t("psychology.paidAssessDesc"),
+      path: "/psychological-counselling/paid-assessments",
     },
     {
       img: diamond5,
       title: t("psychology.hypnoTitle"),
       details: t("psychology.hypnoDesc"),
+      path: "/psychological-counselling/hypnotherapy",
     },
   ];
   return (
@@ -89,11 +96,19 @@ const HomePage = () => {
             </p>
 
             <div className="flex gap-4 flex-wrap items-center justify-center">
-              <button className="bg-primary text-white px-6 py-3 rounded-lg font-medium hover:bg-primary transition">
+              <button
+                onClick={() =>
+                  navigate("/psychological-counselling/free-therapy")
+                }
+                className="bg-primary text-white px-6 py-3 rounded-lg font-medium hover:bg-primary transition"
+              >
                 {t("hero.btnTherapy")}
               </button>
 
-              <button className="border border-primary text-primary px-6 py-3 rounded-lg font-medium hover:bg-orange-50 transition">
+              <button
+                onClick={() => navigate("/future-prediction/credit1")}
+                className="border border-primary text-primary px-6 py-3 rounded-lg font-medium hover:bg-orange-50 transition"
+              >
                 {t("hero.btnPredict")}
               </button>
             </div>
@@ -226,7 +241,10 @@ const HomePage = () => {
 
         {/* CTA Button */}
         <div className="mt-12">
-          <button className="bg-primary text-white px-8 py-3 rounded-lg font-semibold flex items-center mx-auto hover:bg-primary transition-colors">
+          <button
+            onClick={() => navigate("/future-prediction/credit1")}
+            className="bg-primary text-white px-8 py-3 rounded-lg font-semibold flex items-center mx-auto hover:bg-primary transition-colors"
+          >
             {t("futurePrediction.cta")}
           </button>
         </div>
@@ -284,9 +302,12 @@ const HomePage = () => {
                 Read more →
               </p> */}
             </div>{" "}
-            <p className="text-primary text-sm md:text-base font-medium mt-3 text-right cursor-pointer hover:underline">
+            <button
+              onClick={() => navigate(item.path)}
+              className="text-primary text-sm md:text-base font-medium mt-3 text-right cursor-pointer hover:underline"
+            >
               {t("psychology.readMore")}
-            </p>
+            </button>
           </div>
         ))}
       </div>

@@ -5,6 +5,8 @@ import Wheel from "../../assets/Aboutusimg/Wheel.png";
 import InviteFriend from "../../components/InviteFriend";
 import { AiOutlineClose } from "react-icons/ai";
 import { HiOutlineCalendar } from "react-icons/hi";
+import { collection, getDocs, orderBy, query, where } from "firebase/firestore";
+import { db } from "../../config/firebase";
 
 const THERAPY_TOPICS = [
   "anxiety",
@@ -34,7 +36,30 @@ const FreeTherapy = () => {
   const { t } = useTranslation();
   const [modalTopic, setModalTopic] = useState(null);
   const therapistTags = t("psychology.therapistTags", { returnObjects: true });
+  const [therapyTips, setTherapyTips] = useState([]);
 
+  const fetchTips = async () => {
+    try {
+      const q = query(
+        collection(db, "therapyTips"),
+        where("status", "==", "Active"),
+      );
+
+      const querySnapshot = await getDocs(q);
+
+      const tips = querySnapshot.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data(),
+      }));
+
+      setTherapyTips(tips);
+    } catch (error) {
+      console.error("Error fetching tips:", error);
+    }
+  };
+  useEffect(() => {
+    fetchTips();
+  }, []);
   useEffect(() => {
     const handleEscape = (e) => {
       if (e.key === "Escape") setModalTopic(null);
@@ -70,13 +95,19 @@ const FreeTherapy = () => {
           >
             <div className="flex items-center justify-between p-4 md:p-6 border-b border-gray-100">
               <h3 className="text-lg md:text-xl font-bold text-gray-900">
-                {t(`psychology.topics.${modalTopic}`)}
+                {modalTopic?.title}
               </h3>
             </div>
-            <div className="p-4 md:p-6  flex-1">
-              <p className="text-gray-700 text-sm md:text-base leading-relaxed whitespace-pre-line">
+            {/* <div className="p-4 md:p-6  flex-1">
+              <p className="text-black text-sm md:text-base leading-relaxed whitespace-pre-line">
                 {t(`psychology.tipsContent.${modalTopic}`)}
               </p>
+            </div> */}
+            <div className="p-4 md:p-6 flex-1 overflow-y-auto max-h-[60vh]">
+              <div
+                className="text-black text-sm md:text-sm leading-relaxed"
+                dangerouslySetInnerHTML={{ __html: modalTopic?.description }}
+              />
             </div>
             <button
               onClick={() => setModalTopic(null)}
@@ -91,14 +122,14 @@ const FreeTherapy = () => {
           <div className="flex flex-col lg:flex-row gap-8">
             {/* Free Therapy Tips Grid */}
             <div className="flex-1">
-              <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-2 gap-3 md:gap-4">
-                {THERAPY_TOPICS.map((topic) => (
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
+                {therapyTips.map((topic) => (
                   <div
                     key={topic}
                     className="flex items-center justify-between gap-3 p-4 bg-[#F9F9F9] rounded-xl border border-primary shadow-sm hover:shadow-md transition-shadow"
                   >
                     <span className="text-black font-medium text-sm md:text-base flex-1 min-w-0">
-                      {t(`psychology.topics.${topic}`)}
+                      {topic.title}
                     </span>
                     <button
                       onClick={() => setModalTopic(topic)}

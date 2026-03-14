@@ -1,12 +1,16 @@
 import React, { useState, useRef, useEffect } from "react";
 import headerlogo from "../assets/headerlogo.png";
 import { AiOutlineMenu, AiOutlineClose, AiOutlineDown } from "react-icons/ai";
-import { NavLink, useLocation } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import profile from "../assets/profile.png";
 import lng from "../assets/lng.png";
 import wallet from "../assets/wallet.png";
 import Login from "./Login";
+import { onAuthStateChanged, signOut } from "firebase/auth";
+import { auth, db } from "../config/firebase";
+import { doc, getDoc } from "firebase/firestore";
+import Swal from "sweetalert2";
 
 const FUTURE_PREDICTION_ITEMS = [
   {
@@ -59,6 +63,11 @@ const PSYCHOLOGICAL_COUNSELLING_ITEMS = [
 ];
 
 const Header = () => {
+  const [showProfileDropdown, setShowProfileDropdown] = useState(false);
+  const [showMobileProfileMenu, setShowMobileProfileMenu] = useState(false);
+  const profileDropdownRef = useRef(null);
+  const [screenName, setScreenName] = useState("");
+  const navigate = useNavigate();
   const [showSidebar, setShowSidebar] = useState(false);
   const [showFuturePredictionDropdown, setShowFuturePredictionDropdown] =
     useState(false);
@@ -77,7 +86,29 @@ const Header = () => {
   const location = useLocation();
   const { t } = useTranslation();
   const [showLogin, setShowLogin] = useState(false);
-  const isLoggedIn = localStorage.getItem("user");
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [userData, setUserData] = useState(null);
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, async (user) => {
+      if (user) {
+        setIsLoggedIn(true);
+        console.log(user);
+        const docRef = doc(db, "users", user.uid);
+        const docSnap = await getDoc(docRef);
+
+        if (docSnap.exists()) {
+          setUserData(docSnap.data());
+        }
+      } else {
+        setIsLoggedIn(false);
+        setUserData(null);
+      }
+    });
+
+    return () => unsubscribe();
+  }, [location.pathname]);
+
   // Close dropdown when clicking outside
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -101,11 +132,64 @@ const Header = () => {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        profileDropdownRef.current &&
+        !profileDropdownRef.current.contains(event.target)
+      ) {
+        setShowProfileDropdown(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  const handleLogout = async () => {
+    const result = await Swal.fire({
+      title: "Are you sure?",
+      text: "You will be logged out of your account.",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#D04500",
+      cancelButtonColor: "#6b7280",
+      confirmButtonText: "Yes, Logout",
+    });
+
+    if (result.isConfirmed) {
+      try {
+        await signOut(auth);
+        setShowProfileDropdown(false);
+        setShowMobileProfileMenu(false);
+
+        await Swal.fire({
+          title: "Logged Out!",
+          text: "You have been successfully logged out.",
+          icon: "success",
+          timer: 1500,
+          showConfirmButton: false,
+        });
+
+        navigate("/");
+      } catch (error) {
+        console.error("Logout error:", error);
+
+        Swal.fire({
+          title: "Error!",
+          text: "Something went wrong while logging out.",
+          icon: "error",
+        });
+      }
+    }
+  };
+  const firstLetter = userData?.fullName?.charAt(0)?.toUpperCase();
+
   return (
     <>
       {/* HEADER */}
       <header className="mb-24 font-poppins fixed top-0 left-0 w-full bg-white z-50 shadow-sm">
-        <div className="max-w-7xl mx-auto flex justify-between  items-center px-6 py-4">
+        <div className=" mx-auto flex justify-between  items-center px-6 py-4">
           {/* Logo */}
           <img
             src={headerlogo}
@@ -229,7 +313,7 @@ const Header = () => {
               </li>
             </NavLink>
             {/* <NavLink to="/profile" onClick={() => setShowSidebar(false)}> */}
-            <NavLink
+            {/* <NavLink
               to={isLoggedIn ? "/profile" : "/"}
               onClick={(e) => {
                 if (!isLoggedIn) {
@@ -244,8 +328,66 @@ const Header = () => {
                 src={profile}
                 // className={"lg:hidden"}
               />
-            </NavLink>
-            <NavLink to="/wallet" onClick={() => setShowSidebar(false)}>
+            </NavLink> */}
+            <li
+              className="relative"
+              ref={profileDropdownRef}
+              onMouseEnter={() => isLoggedIn && setShowProfileDropdown(true)}
+            >
+              <button
+                onClick={(e) => {
+                  if (!isLoggedIn) {
+                    setScreenName("profile");
+                    setShowLogin(true);
+                  } else {
+                    setShowProfileDropdown(!showProfileDropdown);
+                  }
+                }}
+                className="relative mt-1"
+              >
+                {/* <img src={profile} alt="profile" /> */}
+                {isLoggedIn ? (
+                  <div className="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center font-semibold text-sm">
+                    {firstLetter}
+                  </div>
+                ) : (
+                  <img src={profile} alt="profile" className="" />
+                )}
+              </button>
+
+              {isLoggedIn && showProfileDropdown && (
+                <div className="absolute right-0 mt-2 w-40 bg-[#FBECE0] shadow-lg rounded-lg border border-gray-200 overflow-hidden">
+                  <button
+                    onClick={() => {
+                      navigate("/profile");
+                      setShowProfileDropdown(false);
+                    }}
+                    className="w-full text-left px-4 py-2 hover:bg-[#f5d5c4]/50 text-sm"
+                  >
+                    My Profile
+                  </button>
+                  <hr className="border-t border-primary mx-2" />
+                  <button
+                    onClick={handleLogout}
+                    className="w-full text-left px-4 py-2 hover:bg-[#f5d5c4]/50 text-sm text-red-500"
+                  >
+                    Logout
+                  </button>
+                </div>
+              )}
+            </li>
+            <NavLink
+              to={isLoggedIn ? "/wallet" : "/"}
+              onClick={(e) => {
+                if (!isLoggedIn) {
+                  e.preventDefault(); // stop navigation
+                  setScreenName("wallet");
+                  setShowLogin(true); // open login modal
+                } else {
+                  setShowSidebar(false);
+                }
+              }}
+            >
               <img
                 src={wallet}
                 // className={"lg:hidden"}
@@ -275,7 +417,7 @@ const Header = () => {
           {/* Mobile Icons */}
           <div className="flex justify-center gap-6 py-4 border-b border-gray-200 w-full">
             {/* <NavLink to="/profile" onClick={() => setShowSidebar(false)}> */}
-            <NavLink
+            {/* <NavLink
               to={isLoggedIn ? "/profile" : "/"}
               onClick={(e) => {
                 if (!isLoggedIn) {
@@ -287,12 +429,64 @@ const Header = () => {
               }}
             >
               <img src={profile} alt="profile" className="w-6 h-6" />
-            </NavLink>
+            </NavLink> */}
+            <div className="relative">
+              <button
+                onClick={(e) => {
+                  if (!isLoggedIn) {
+                    setShowLogin(true);
+                    setScreenName("profile");
+                  } else {
+                    setShowMobileProfileMenu(!showMobileProfileMenu);
+                  }
+                }}
+              >
+                {/* <img src={profile} alt="profile" className="w-6 h-6" /> */}
+                {isLoggedIn ? (
+                  <div className="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center font-semibold text-sm">
+                    {firstLetter}
+                  </div>
+                ) : (
+                  <img src={profile} alt="profile" className="w-6 h-6" />
+                )}
+              </button>
 
-            <NavLink to="/wallet" onClick={() => setShowSidebar(false)}>
+              {isLoggedIn && showMobileProfileMenu && (
+                <div className="absolute top-8 left-0 bg-[#FBECE0] shadow-md rounded-lg w-32 border border-gray-200">
+                  <NavLink
+                    to="/profile"
+                    onClick={() => {
+                      setShowSidebar(false);
+                      setShowMobileProfileMenu(false);
+                    }}
+                    className="block px-4 py-2 text-sm hover:bg-[#f5d5c4]/50"
+                  >
+                    Profile
+                  </NavLink>
+                  <hr className="border-t border-primary mx-2" />
+                  <button
+                    onClick={handleLogout}
+                    className="block w-full text-left px-4 py-2 text-sm hover:bg-[#f5d5c4]/50"
+                  >
+                    Logout
+                  </button>
+                </div>
+              )}
+            </div>
+            <NavLink
+              to={isLoggedIn ? "/wallet" : "/"}
+              onClick={(e) => {
+                if (!isLoggedIn) {
+                  e.preventDefault(); // stop navigation
+                  setScreenName("wallet");
+                  setShowLogin(true); // open login modal
+                } else {
+                  setShowSidebar(false);
+                }
+              }}
+            >
               <img src={wallet} alt="wallet" className="w-6 h-6" />
             </NavLink>
-
             <NavLink to="/" onClick={() => setShowSidebar(false)}>
               <img src={lng} alt="language" className="w-6 h-6" />
             </NavLink>
@@ -392,7 +586,11 @@ const Header = () => {
           </NavLink>
         </div>
       )}
-      <Login isOpen={showLogin} onClose={() => setShowLogin(false)} />
+      <Login
+        isOpen={showLogin}
+        onClose={() => setShowLogin(false)}
+        screenName={screenName}
+      />
       {/* SPACE BELOW FIXED HEADER */}
       <div className="h-20"></div>
     </>

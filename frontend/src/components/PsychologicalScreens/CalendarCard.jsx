@@ -3,8 +3,20 @@ import { useTranslation } from "react-i18next";
 import { DayPicker } from "react-day-picker";
 import "react-day-picker/dist/style.css";
 
-const CalendarCard = () => {
+const CalendarCard = ({ selectedDate, setSelectedDate }) => {
   const { t } = useTranslation();
+  const handleDateSelect = (date) => {
+    if (!date) return;
+
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, "0");
+    const day = String(date.getDate()).padStart(2, "0");
+
+    const formattedDate = `${year}-${month}-${day}`;
+
+    console.log("Selected date:", formattedDate);
+    setSelectedDate(formattedDate);
+  };
 
   return (
     // <div className="bg-white p-6 rounded-xl shadow">
@@ -30,6 +42,9 @@ const CalendarCard = () => {
           numberOfMonths={1}
           pagedNavigation
           className="max-w-full"
+          selected={selectedDate ? new Date(selectedDate) : undefined}
+          onSelect={handleDateSelect}
+          disabled={{ before: new Date() }}
           classNames={{
             months:
               "flex flex-col gap-4 sm:flex-col md:flex-col lg:flex-row md:gap-6",

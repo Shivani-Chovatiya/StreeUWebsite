@@ -15,6 +15,8 @@ import Wallet from "./pages/Wallet";
 import Profile from "./pages/Profile";
 import IntakeForm from "./components/IntakeForm";
 import Privacy from "./pages/Privacy";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const App = () => {
   return (
@@ -27,7 +29,7 @@ const App = () => {
         <Route path="/profile" element={<Profile />} />
         <Route path="/pricing" element={<Pricing />} />
         <Route path="/contactus" element={<ContactUs />} />
-        <Route path="/pricing" element={<Pricing />} />
+
         <Route
           path="/psychological-counselling/:title"
           element={<PsychologicalCounselling />}
@@ -44,6 +46,7 @@ const App = () => {
         <Route path="/privacy" element={<Privacy />} />
       </Routes>
       <Footer />
+      <ToastContainer position="top-right" autoClose={3000} />
     </>
   );
 };
