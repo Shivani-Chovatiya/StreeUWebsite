@@ -133,23 +133,29 @@ const Profile = () => {
           let bookingTime = null;
 
           if (slot?.bookedBy?.createdAt?.toDate) {
-            bookingTime = slot?.bookedBy.createdAt.toDate(); // Firestore Timestamp
+            bookingTime = slot.bookedBy.createdAt.toDate(); // Firestore timestamp
           } else if (slot?.bookedBy?.createdAt) {
-            bookingTime = new Date(slot?.bookedBy.createdAt); // JS Date or string
+            bookingTime = new Date(slot.bookedBy.createdAt);
           }
-          console.log("bookingTime", bookingTime);
+
           let canCancel = false;
 
           if (bookingTime) {
-            // const diffHours = (now - bookingTime) / (1000 * 60 * 60);
-            // console.log("diffHours", diffHours);
-            // canCancel = diffHours <= 24;
             const now = new Date();
-            const sessionDateTime = new Date(`${slot.date}T${slot.start}`);
 
-            const diffHours = (sessionDateTime - now) / (1000 * 60 * 60);
+            // condition 1 → within 24 hours from booking
+            const diffBookingNow = (now - bookingTime) / (1000 * 60 * 60);
 
-            const canCancel = diffHours > 24;
+            // session start datetime
+            const sessionDateTime = new Date(`${slot.date} ${slot.start}`);
+
+            // condition 2 → session start at least 24h after booking
+            const diffBookingSession =
+              (sessionDateTime - bookingTime) / (1000 * 60 * 60);
+
+            if (diffBookingNow <= 24 && diffBookingSession >= 24) {
+              canCancel = true;
+            }
           }
           console.log(canCancel);
           sessions.push({
