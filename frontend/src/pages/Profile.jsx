@@ -137,14 +137,21 @@ const Profile = () => {
           } else if (slot?.bookedBy?.createdAt) {
             bookingTime = new Date(slot?.bookedBy.createdAt); // JS Date or string
           }
-          console.log(bookingTime);
+          console.log("bookingTime", bookingTime);
           let canCancel = false;
 
           if (bookingTime) {
-            const diffHours = (now - bookingTime) / (1000 * 60 * 60);
-            canCancel = diffHours <= 24;
-          }
+            // const diffHours = (now - bookingTime) / (1000 * 60 * 60);
+            // console.log("diffHours", diffHours);
+            // canCancel = diffHours <= 24;
+            const now = new Date();
+            const sessionDateTime = new Date(`${slot.date}T${slot.start}`);
 
+            const diffHours = (sessionDateTime - now) / (1000 * 60 * 60);
+
+            const canCancel = diffHours > 24;
+          }
+          console.log(canCancel);
           sessions.push({
             therapistId: docSnap.id,
             therapistName: therapist.name,

@@ -97,7 +97,7 @@ const Login = ({ isOpen, onClose, screenName, referralCodeData }) => {
   const mapRef = useRef(null);
 
   const navigate = useNavigate();
-  console.log(referralCodeData);
+  // console.log(referralCodeData);
   useEffect(() => {
     if (referralCodeData) {
       setReferralCode(referralCodeData);
@@ -694,7 +694,7 @@ const Login = ({ isOpen, onClose, screenName, referralCodeData }) => {
       }
     });
   };
-  console.log(locationData);
+  // console.log(locationData);
   const onPlacesChanged = () => {
     const places = searchBoxRef.current.getPlaces();
     if (!places || places.length === 0) return;
