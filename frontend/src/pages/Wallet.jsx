@@ -208,8 +208,8 @@ const Wallet = () => {
           <div className="relative z-10 text-center space-y-6">
             {/* Icon */}
             <div className="inline-flex items-center justify-center w-24 h-24 bg-white/20 backdrop-blur-sm rounded-full border-4 border-white/30 shadow-xl animate-bounce-gentle">
-              {userData.locationData &&
-              userData.locationData.country === "India" ? (
+              {userData?.locationData &&
+              userData?.locationData?.country === "India" ? (
                 <h1 className="text-xl md:text-4xl text-white font-bold">₹</h1>
               ) : (
                 <svg
