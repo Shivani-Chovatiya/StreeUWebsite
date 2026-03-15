@@ -302,8 +302,8 @@ const Privacy = () => {
         </div>
       </div>
       <div
-        style={{ backgroundImage: `url(${Wheel})` }}
-        className="w-full md:min-h-screen bg-contain bg-right bg-no-repeat mt-10 justify-center items-center flex"
+        // style={{ backgroundImage: `url(${Wheel})` }}md:min-h-screen
+        className="w-full  bg-contain bg-right bg-no-repeat mt-10 justify-center items-center flex"
       >
         <InviteFriend />
       </div>

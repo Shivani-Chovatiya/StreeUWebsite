@@ -365,7 +365,8 @@ export default function SessionCard({
     Default: "bg-gray-100",
   };
   return (
-    <div className="relative h-full flex flex-col">
+    <div className="relative h-full">
+      {/* // <div className="relative h-full flex flex-col"> */}
       {/* Overlay for Cancelled/Rescheduled sessions */}
       {isInactive && (
         <div className="absolute inset-0 bg-black/20 rounded-xl z-10 flex items-center justify-center">
@@ -396,8 +397,14 @@ export default function SessionCard({
         </div>
       )}
 
-      <div
+      {/* <div
         className={`bg-gray-100 rounded-xl p-5 w-full flex flex-col justify-between ${
+          isInactive ? "opacity-50" : ""
+        }`}
+        key={key}
+      > */}
+      <div
+        className={`bg-gray-100 rounded-xl p-5 w-full h-full flex flex-col ${
           isInactive ? "opacity-50" : ""
         }`}
         key={key}

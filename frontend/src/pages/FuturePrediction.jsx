@@ -164,17 +164,17 @@ const FuturePrediction = () => {
   return (
     <div className="font-poppins mt-10">
       <div className="flex flex-col gap-6 p-3 md:p-6 justify-center items-center bg-[#F5D6C7] m-3 md:m-6 rounded-2xl">
-        <img src={vector} className="" />
-        <h1 className="p-3 border rounded-2xl text-xs md:text-xl">
-          <span className="text-white bg-primary rounded-full text-sm md:text-xl px-2 py-1  md:px-4 md:py-2">
+        {/* <img src={vector} className="" /> */}
+        <h1 className="p-3 border rounded-2xl text-xs md:text-xl animate-slide-in-left">
+          <span className="animate-pulse text-white bg-primary rounded-full text-sm md:text-xl px-2 py-1  md:px-4 md:py-2">
             New
           </span>{" "}
           {t("aboutus.badge")}
         </h1>
-        <h1 className="text-2xl md:text-4xl lg:text-6xl font-bold text-black text-center p-3">
+        <h1 className="text-2xl md:text-4xl lg:text-6xl font-bold text-black text-center p-3 animate-slide-up">
           {t("futurePrediction.pageTitle")}
         </h1>
-        <h1 className="text-xs md:text-sm lg:text-sm font-semibold md:w-3/4 text-black text-center p-3">
+        <h1 className="text-xs md:text-sm lg:text-sm font-semibold md:w-3/4 text-black text-center p-3 animate-slide-up-delay">
           {t("futurePrediction.subtitle")}
         </h1>
         {isLoggedIn ? (
@@ -280,8 +280,8 @@ const FuturePrediction = () => {
         </div>
       </section>
       <div
-        style={{ backgroundImage: `url(${Wheel})` }}
-        className="w-full md:min-h-screen   bg-contain bg-right bg-no-repeat mt-10 justify-center items-center flex"
+        // style={{ backgroundImage: `url(${Wheel})` }}md:min-h-screen
+        className="w-full   bg-contain bg-right bg-no-repeat mt-10 justify-center items-center flex"
       >
         <InviteFriend />
       </div>

@@ -411,7 +411,7 @@ const Header = () => {
       </header>
 
       {/* MOBILE SIDEBAR */}
-      {showSidebar && (
+      {false && (
         // <div className="font-poppins flex flex-col items-center mt-24 w-full h-screen bg-white text-xl font-semibold lg:hidden gap-3 overflow-y-auto pb-8">
         <div className="fixed inset-0 top-20 z-40 bg-white font-poppins flex flex-col items-center text-xl font-semibold lg:hidden gap-3 overflow-y-auto pb-8">
           {/* Mobile Icons */}
@@ -585,6 +585,190 @@ const Header = () => {
             </h1>
           </NavLink>
         </div>
+      )}
+      {/* MOBILE SIDEBAR */}
+      {showSidebar && (
+        <>
+          {/* Overlay */}
+          <div
+            className="fixed inset-0 bg-black/40 z-40 lg:hidden"
+            onClick={() => setShowSidebar(false)}
+          ></div>
+
+          {/* Sidebar */}
+          <div className="fixed top-0 left-0 h-full w-72 bg-white z-50 shadow-xl font-poppins flex flex-col overflow-y-auto lg:hidden animate-slide-in-left">
+            {/* Profile / Icons */}
+            <div className="flex items-center justify-between p-4 border-b border-gray-200">
+              <div className="flex items-center gap-3">
+                <button
+                  onClick={(e) => {
+                    if (!isLoggedIn) {
+                      setShowLogin(true);
+                      setScreenName("profile");
+                    } else {
+                      setShowMobileProfileMenu(!showMobileProfileMenu);
+                    }
+                  }}
+                >
+                  {isLoggedIn ? (
+                    <div className="w-9 h-9 rounded-full bg-primary text-white flex items-center justify-center font-semibold">
+                      {firstLetter}
+                    </div>
+                  ) : (
+                    <img src={profile} alt="profile" className="w-7 h-7" />
+                  )}
+                </button>
+                {isLoggedIn && showMobileProfileMenu && (
+                  <div className="absolute top-10 left-10 bg-[#FBECE0] shadow-md rounded-lg w-32 border border-gray-200">
+                    <NavLink
+                      to="/profile"
+                      onClick={() => {
+                        setShowSidebar(false);
+                        setShowMobileProfileMenu(false);
+                      }}
+                      className="block px-4 py-2 text-sm hover:bg-[#f5d5c4]/50"
+                    >
+                      Profile
+                    </NavLink>
+                    <hr className="border-t border-primary mx-2" />
+                    <button
+                      onClick={handleLogout}
+                      className="block w-full text-left px-4 py-2 text-sm hover:bg-[#f5d5c4]/50"
+                    >
+                      Logout
+                    </button>
+                  </div>
+                )}
+                <NavLink
+                  to={isLoggedIn ? "/wallet" : "/"}
+                  onClick={(e) => {
+                    if (!isLoggedIn) {
+                      e.preventDefault();
+                      setScreenName("wallet");
+                      setShowLogin(true);
+                    } else {
+                      setShowSidebar(false);
+                    }
+                  }}
+                >
+                  <img src={wallet} alt="wallet" className="w-6 h-6" />
+                </NavLink>
+
+                <NavLink to="/" onClick={() => setShowSidebar(false)}>
+                  <img src={lng} alt="language" className="w-6 h-6" />
+                </NavLink>
+              </div>
+
+              {/* Close */}
+              <button onClick={() => setShowSidebar(false)} className="text-xl">
+                ✕
+              </button>
+            </div>
+
+            {/* Menu */}
+            <div className="flex flex-col text-base font-medium">
+              <NavLink
+                to="/"
+                onClick={() => setShowSidebar(false)}
+                className="px-6 py-3 hover:bg-[#FBECE0]"
+              >
+                {t("header.home")}
+              </NavLink>
+
+              <NavLink
+                to="/aboutus"
+                onClick={() => setShowSidebar(false)}
+                className="px-6 py-3 hover:bg-[#FBECE0]"
+              >
+                {t("header.about")}
+              </NavLink>
+
+              {/* Future Prediction */}
+              <button
+                onClick={() =>
+                  setShowMobileFuturePrediction(!showMobileFuturePrediction)
+                }
+                className="flex justify-between items-center px-6 py-3 hover:bg-[#FBECE0]"
+              >
+                {t("header.futurePrediction")}
+                <AiOutlineDown
+                  className={`transition-transform ${
+                    showMobileFuturePrediction ? "rotate-180" : ""
+                  }`}
+                />
+              </button>
+
+              {showMobileFuturePrediction && (
+                <div className="bg-[#FBECE0]">
+                  {FUTURE_PREDICTION_ITEMS.map((item) => (
+                    <NavLink
+                      key={item.path}
+                      to={item.path}
+                      onClick={() => {
+                        setShowSidebar(false);
+                        setShowMobileFuturePrediction(false);
+                      }}
+                      className="block px-10 py-3 text-sm hover:bg-[#f5d5c4]/50"
+                    >
+                      {t(item.labelKey)}
+                    </NavLink>
+                  ))}
+                </div>
+              )}
+
+              {/* Psychological */}
+              <button
+                onClick={() =>
+                  setShowMobilePsychologicalCounselling(
+                    !showMobilePsychologicalCounselling,
+                  )
+                }
+                className="flex justify-between items-center px-6 py-3 hover:bg-[#FBECE0]"
+              >
+                {t("header.psychologicalCounselling")}
+                <AiOutlineDown
+                  className={`transition-transform ${
+                    showMobilePsychologicalCounselling ? "rotate-180" : ""
+                  }`}
+                />
+              </button>
+
+              {showMobilePsychologicalCounselling && (
+                <div className="bg-[#FBECE0]">
+                  {PSYCHOLOGICAL_COUNSELLING_ITEMS.map((item) => (
+                    <NavLink
+                      key={item.path}
+                      to={item.path}
+                      onClick={() => {
+                        setShowSidebar(false);
+                        setShowMobilePsychologicalCounselling(false);
+                      }}
+                      className="block px-10 py-3 text-sm hover:bg-[#f5d5c4]/50"
+                    >
+                      {t(item.labelKey)}
+                    </NavLink>
+                  ))}
+                </div>
+              )}
+
+              <NavLink
+                to="/contactus"
+                onClick={() => setShowSidebar(false)}
+                className="px-6 py-3 hover:bg-[#FBECE0]"
+              >
+                {t("header.contact")}
+              </NavLink>
+
+              <NavLink
+                to="/pricing"
+                onClick={() => setShowSidebar(false)}
+                className="px-6 py-3 hover:bg-[#FBECE0]"
+              >
+                {t("header.pricing")}
+              </NavLink>
+            </div>
+          </div>
+        </>
       )}
       <Login
         isOpen={showLogin}

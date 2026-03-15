@@ -471,31 +471,54 @@ const Profile = () => {
     }
   };
   return (
-    <div className="font-poppins mt-10 p-3 md:p-6">
-      <div className="flex flex-col gap-5 justify-center items-center">
-        <h1 className="text-black text-xl md:text-2xl font-bold">
-          User Profile
-        </h1>
+    // <div className="font-poppins mt-10 p-3 md:p-6">
+    //   <div className="flex flex-col gap-5 justify-center items-center">
+    //     <h1 className="text-black text-xl md:text-2xl font-bold">
+    //       User Profile
+    //     </h1>
 
-        {/* Tabs */}
-        <div className="grid grid-cols-3 gap-2 p-1 mb-4 justify-center items-center">
-          {["Profile", "My Predictions", "Booking"].map((tab) => (
-            <button
-              key={tab}
-              onClick={() => setActiveTab(tab)}
-              className={`px-5 py-2 rounded-xl border font-bold text-center justify-center items-center flex border-primary text-sm ${
-                activeTab === tab
-                  ? "bg-primary text-white"
-                  : "text-black hover:bg-gray-100"
-              }`}
-            >
-              {tab}
-            </button>
-          ))}
-        </div>
+    //     <div className="grid grid-cols-3 gap-2 p-1 mb-4 justify-center items-center">
+    //       {["Profile", "My Predictions", "Booking"].map((tab) => (
+    //         <button
+    //           key={tab}
+    //           onClick={() => setActiveTab(tab)}
+    //           className={`px-5 py-2 rounded-xl border font-bold text-center justify-center items-center flex border-primary text-sm ${
+    //             activeTab === tab
+    //               ? "bg-primary text-white"
+    //               : "text-black hover:bg-gray-100"
+    //           }`}
+    //         >
+    //           {tab}
+    //         </button>
+    //       ))}
+    //     </div>
+    <div className="bg-gradient-to-br from-orange-50 via-white to-orange-50 min-h-screen py-10 ">
+      <div className="font-poppins px-3 md:px-6 max-w-7xl mx-auto ">
+        {/* // <div className="font-poppins mt-6 md:mt-10 px-4 md:px-8 lg:px-12 xl:px-16"> */}
+        <div className="flex flex-col gap-5 justify-center items-center">
+          {/* Title */}
+          <h1 className="text-black text-2xl md:text-3xl font-bold animate-fade-in">
+            User Profile
+          </h1>
 
-        {/* PROFILE TAB */}
-        {activeTab === "Profile" && userData && (
+          {/* Tabs */}
+          <div className="flex gap-2 p-1 mb-4 bg-gray-100 rounded-2xl shadow-inner">
+            {["Profile", "My Predictions", "Booking"].map((tab) => (
+              <button
+                key={tab}
+                onClick={() => setActiveTab(tab)}
+                className={`px-4 md:px-6 py-2.5 rounded-xl font-semibold text-xs md:text-sm transition-all duration-300 ${
+                  activeTab === tab
+                    ? "bg-primary text-white shadow-lg scale-105"
+                    : "text-gray-600 hover:text-primary hover:bg-white"
+                }`}
+              >
+                {tab}
+              </button>
+            ))}
+          </div>
+          {/* PROFILE TAB */}
+          {/* {activeTab === "Profile" && userData && (
           <div className="w-full max-w-2xl bg-white shadow-md rounded-xl p-6 space-y-4">
             <div>
               <p className="text-gray-500 text-sm">Full Name</p>
@@ -525,11 +548,7 @@ const Profile = () => {
               <p className="font-semibold">{userData.birthLocation}</p>
             </div>
 
-            {/* MAP */}
-            {console.log(
-              userData.locationData,
-              isLoaded && userData.locationData,
-            )}
+       
             {isLoaded && userData.locationData && (
               <GoogleMap
                 mapContainerStyle={containerStyle}
@@ -565,16 +584,192 @@ const Profile = () => {
               </GoogleMap>
             )}
 
-            {/* LOGOUT BUTTON */}
-            {/* <button
-              onClick={handleLogout}
-              className="w-full py-3 mt-4 rounded-xl bg-red-500 text-white font-semibold hover:opacity-90 transition"
-            >
-              Logout
-            </button> */}
+           
           </div>
-        )}
-        {activeTab === "Booking" && userData && sessionsData && (
+        )} */}
+
+          {activeTab === "Profile" && userData && (
+            <div className="w-full ">
+              <div className="bg-gradient-to-br from-orange-50 via-white to-orange-50 shadow-xl rounded-2xl overflow-hidden">
+                {/* Header Card */}
+                <div className="bg-gradient-to-r from-primary to-orange-400 p-6 md:p-8 text-white relative overflow-hidden">
+                  {/* Animated Background Shapes */}
+                  <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full blur-3xl animate-blob"></div>
+                  <div className="absolute bottom-0 left-0 w-40 h-40 bg-white/10 rounded-full blur-3xl animate-blob animation-delay-2000"></div>
+
+                  <div className="flex items-center gap-4 relative z-10">
+                    {/* Avatar */}
+                    <div className="w-20 h-20 md:w-24 md:h-24 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-3xl md:text-4xl font-bold border-4 border-white/30 shadow-lg animate-scale-in hover:scale-110 transition-transform duration-300 cursor-pointer">
+                      <span className="animate-fade-in">
+                        {userData.fullName.charAt(0).toUpperCase()}
+                      </span>
+                    </div>
+
+                    {/* Name & Phone */}
+                    <div className="space-y-1">
+                      <h2 className="text-2xl md:text-3xl font-bold animate-slide-in-right">
+                        {userData.fullName}
+                      </h2>
+                      <p className="text-white/90 text-sm md:text-base flex items-center gap-2 animate-slide-in-right animation-delay-200">
+                        <svg
+                          className="w-4 h-4 animate-bounce-gentle"
+                          fill="currentColor"
+                          viewBox="0 0 20 20"
+                        >
+                          <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
+                        </svg>
+                        {auth.currentUser?.phoneNumber}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Info Grid */}
+                <div className="p-6 md:p-8 space-y-4">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    {/* Gender */}
+                    <div className="bg-white border border-gray-200 rounded-xl p-4 hover:shadow-md transition-shadow duration-300 group">
+                      <div className="flex items-center gap-3">
+                        <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-colors duration-300">
+                          <svg
+                            className="w-5 h-5"
+                            fill="currentColor"
+                            viewBox="0 0 20 20"
+                          >
+                            <path
+                              fillRule="evenodd"
+                              d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
+                              clipRule="evenodd"
+                            />
+                          </svg>
+                        </div>
+                        <div>
+                          <p className="text-gray-500 text-xs">Gender</p>
+                          <p className="font-semibold text-gray-900">
+                            {userData.gender.charAt(0).toUpperCase() +
+                              userData.gender.slice(1)}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Birth Date & Time */}
+                    <div className="bg-white border border-gray-200 rounded-xl p-4 hover:shadow-md transition-shadow duration-300 group">
+                      <div className="flex items-center gap-3">
+                        <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-colors duration-300">
+                          <svg
+                            className="w-5 h-5"
+                            fill="currentColor"
+                            viewBox="0 0 20 20"
+                          >
+                            <path
+                              fillRule="evenodd"
+                              d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"
+                              clipRule="evenodd"
+                            />
+                          </svg>
+                        </div>
+                        <div>
+                          <p className="text-gray-500 text-xs">
+                            Birth Date & Time
+                          </p>
+                          <p className="font-semibold text-gray-900">
+                            {formatDate(userData.dob)}
+                          </p>
+                          <p className="text-sm text-gray-600">
+                            {formatTime(userData.birthTime)}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Birth Location - Full Width */}
+                  <div className="bg-white border border-gray-200 rounded-xl p-4 hover:shadow-md transition-shadow duration-300 group">
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-primary group-hover:text-white transition-colors duration-300">
+                        <svg
+                          className="w-5 h-5"
+                          fill="currentColor"
+                          viewBox="0 0 20 20"
+                        >
+                          <path
+                            fillRule="evenodd"
+                            d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
+                            clipRule="evenodd"
+                          />
+                        </svg>
+                      </div>
+                      <div>
+                        <p className="text-gray-500 text-xs">Birth Location</p>
+                        <p className="font-semibold text-gray-900">
+                          {userData.birthLocation}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* MAP */}
+                  {isLoaded && userData.locationData && (
+                    <div className="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-md">
+                      <div className="bg-gradient-to-r from-primary/10 to-orange-100 p-3 border-b border-gray-200">
+                        <p className="font-semibold text-gray-900 text-sm flex items-center gap-2">
+                          <svg
+                            className="w-4 h-4 text-primary"
+                            fill="currentColor"
+                            viewBox="0 0 20 20"
+                          >
+                            <path
+                              fillRule="evenodd"
+                              d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
+                              clipRule="evenodd"
+                            />
+                          </svg>
+                          Location on Map
+                        </p>
+                      </div>
+                      <GoogleMap
+                        mapContainerStyle={containerStyle}
+                        center={{
+                          lat: Number(userData.locationData.lat),
+                          lng: Number(userData.locationData.lng),
+                        }}
+                        zoom={12}
+                        onLoad={(mapInstance) => {
+                          setTimeout(() => {
+                            window.google.maps.event.trigger(
+                              mapInstance,
+                              "resize",
+                            );
+                            mapInstance.setCenter({
+                              lat: Number(userData.locationData.lat),
+                              lng: Number(userData.locationData.lng),
+                            });
+                          }, 500);
+                        }}
+                        options={{
+                          draggable: false,
+                          zoomControl: false,
+                          scrollwheel: false,
+                          disableDoubleClickZoom: true,
+                          gestureHandling: "none",
+                          keyboardShortcuts: false,
+                        }}
+                      >
+                        <Marker
+                          position={{
+                            lat: Number(userData.locationData.lat),
+                            lng: Number(userData.locationData.lng),
+                          }}
+                        />
+                      </GoogleMap>
+                    </div>
+                  )}
+                </div>
+              </div>
+            </div>
+          )}
+          {/* {activeTab === "Booking" && userData && sessionsData && (
           <div className="flex justify-center items-center">
             <div
               className={`grid grid-cols-1 ${sessionsData.length === 1 ? "md:grid-cols-1" : "md:grid-cols-2"} h-full items-center justify-center gap-2`}
@@ -590,7 +785,7 @@ const Profile = () => {
 
                     return (
                       // <div key={sessionKey} className="relative">
-                      //   {/* Overlay for cancelled/rescheduled sessions */}
+                      //   {/* Overlay for cancelled/rescheduled sessions 
                       //   {isInactive && (
                       //     <div className="absolute inset-0 bg-gray-900/50 rounded-lg z-10 flex items-center justify-center">
                       //       <div className="bg-white px-4 py-2 rounded-lg shadow-lg">
@@ -636,38 +831,117 @@ const Profile = () => {
               )}
             </div>
           </div>
-        )}
-        {activeTab === "My Predictions" && (
-          <div className="w-full max-w-3xl flex flex-col gap-4">
-            <div className="flex flex-col md:flex-row gap-3 justify-center">
-              {[
-                { key: "compatibility", label: "Compatibility Info" },
-                { key: "future", label: "Future Prediction Info" },
-              ].map((tab) => (
-                <button
-                  key={tab.key}
-                  onClick={() => setPredictionTab(tab.key)}
-                  className={`px-5 py-2 rounded-xl border border-primary font-semibold text-sm transition ${
-                    predictionTab === tab.key
-                      ? "bg-primary text-white"
-                      : "bg-white text-primary hover:bg-primary/10"
-                  }`}
-                >
-                  {tab.label}
-                </button>
-              ))}
+        )} */}
+          {activeTab === "Booking" && userData && sessionsData && (
+            <div className=" flex justify-center items-center w-full">
+              <div
+                className={`grid grid-cols-1 ${
+                  sessionsData.filter(
+                    (s) =>
+                      s.status !== "Cancelled" && s.status !== "Rescheduled",
+                  ).length === 1
+                    ? "md:grid-cols-1 max-w-2xl"
+                    : "md:grid-cols-2"
+                } gap-4 md:gap-6 w-full max-w-6xl`}
+              >
+                {sessionsData ? (
+                  sessionsData.length > 0 ? (
+                    sessionsData.map((session, index) => {
+                      const sessionKey = `${session.therapistId}-${session.date}-${session.start}`;
+
+                      return (
+                        <div
+                          key={sessionKey}
+                          className="h-full animate-scale-in"
+                          style={{ animationDelay: `${index * 0.1}s` }}
+                        >
+                          <SessionCard
+                            session={session}
+                            handleCancelBooking={handleCancelBooking}
+                            cancellingId={cancellingId}
+                            setCancellingId={setCancellingId}
+                            isCancelling={isCancelling}
+                            setIsCancelling={setIsCancelling}
+                            isReScheduling={isReScheduling}
+                            setIsReScheduling={setIsReScheduling}
+                            handleRescheduleRequest={handleRescheduleRequest}
+                            disabled={false}
+                          />
+                        </div>
+                      );
+                    })
+                  ) : (
+                    <div className="col-span-full text-center py-12 animate-fade-in">
+                      <div className="inline-flex flex-col items-center gap-3">
+                        <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center">
+                          <svg
+                            className="w-8 h-8 text-gray-400"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={2}
+                              d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                            />
+                          </svg>
+                        </div>
+                        <p className="text-gray-500 font-medium">
+                          No active bookings found
+                        </p>
+                        <p className="text-sm text-gray-400">
+                          Your cancelled and rescheduled sessions can be found
+                          in session history
+                        </p>
+                      </div>
+                    </div>
+                  )
+                ) : (
+                  <div className="col-span-full text-center py-12 animate-pulse">
+                    <div className="inline-flex flex-col items-center gap-3">
+                      <div className="w-12 h-12 border-4 border-primary border-t-transparent rounded-full animate-spin"></div>
+                      <p className="text-gray-500 font-medium">
+                        Loading sessions...
+                      </p>
+                    </div>
+                  </div>
+                )}
+              </div>
             </div>
-
-            {predictionTab === "compatibility" ? (
-              predictions.length > 0 ? (
-                predictions.map((p, index) => (
-                  <div
-                    key={index}
-                    className="bg-white border border-primary rounded-xl p-4 shadow-sm"
+          )}
+          {activeTab === "My Predictions" && (
+            <div className="w-full max-w-3xl flex flex-col gap-4">
+              <div className="flex flex-col md:flex-row gap-3 justify-center">
+                {[
+                  { key: "compatibility", label: "Compatibility Info" },
+                  { key: "future", label: "Future Prediction Info" },
+                ].map((tab) => (
+                  <button
+                    key={tab.key}
+                    onClick={() => setPredictionTab(tab.key)}
+                    className={`px-5 py-2 rounded-xl border border-primary font-semibold text-sm transition ${
+                      predictionTab === tab.key
+                        ? "bg-primary text-white"
+                        : "bg-white text-primary hover:bg-primary/10"
+                    }`}
                   >
-                    <p className="font-bold text-black mb-2">{p.question}</p>
+                    {tab.label}
+                  </button>
+                ))}
+              </div>
 
-                    {/* <div className="text-sm text-gray-600 space-y-1">
+              {predictionTab === "compatibility" ? (
+                predictions.length > 0 ? (
+                  predictions.map((p, index) => (
+                    <div
+                      key={index}
+                      className="bg-white border border-primary rounded-xl p-4 shadow-sm"
+                    >
+                      <p className="font-bold text-black mb-2">{p.question}</p>
+
+                      {/* <div className="text-sm text-gray-600 space-y-1">
                     <p>
                       <span className="font-semibold">Person 1:</span>{" "}
                       {p.person1?.name}
@@ -688,14 +962,14 @@ const Profile = () => {
                       {p.person2?.location}
                     </p>
                   </div> */}
-                    <div className="bg-white border border-primary/30 rounded-2xl p-4 md:p-6 shadow-sm hover:shadow-md transition">
-                      {/* Status */}
-                      <div className="flex justify-between items-center mb-4">
-                        <h3 className="font-bold text-black text-sm md:text-base">
-                          Compatibility Details
-                        </h3>
+                      <div className="bg-white border border-primary/30 rounded-2xl p-4 md:p-6 shadow-sm hover:shadow-md transition">
+                        {/* Status */}
+                        <div className="flex justify-between items-center mb-4">
+                          <h3 className="font-bold text-black text-sm md:text-base">
+                            Compatibility Details
+                          </h3>
 
-                        {/* <span
+                          {/* <span
                         className={`text-xs px-3 py-1 rounded-full font-semibold ${
                           p.status === "completed"
                             ? "bg-green-100 text-green-700"
@@ -704,89 +978,98 @@ const Profile = () => {
                       >
                         {p.status || "Pending"}
                       </span> */}
-                      </div>
-
-                      {/* Persons Grid */}
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        {/* Person 1 */}
-                        <div className="bg-[#FFF5EE] border border-primary/20 rounded-xl p-4 space-y-2">
-                          <p className="text-primary font-semibold text-sm">
-                            Person 1
-                          </p>
-
-                          <div className="text-sm text-gray-700 space-y-1">
-                            <p>
-                              <span className="font-semibold">Name:</span>{" "}
-                              {p.person1?.name || "-"}
-                            </p>
-
-                            <p>
-                              <span className="font-semibold">Birth Date:</span>{" "}
-                              {p.person1?.birthDate || "-"}
-                            </p>
-
-                            <p>
-                              <span className="font-semibold">Birth Time:</span>{" "}
-                              {p.person1?.birthTime || "-"}
-                            </p>
-
-                            <p>
-                              <span className="font-semibold">Location:</span>{" "}
-                              {p.person1?.location || "-"}
-                            </p>
-                          </div>
                         </div>
 
-                        {/* Person 2 */}
-                        <div className="bg-[#FFF5EE] border border-primary/20 rounded-xl p-4 space-y-2">
-                          <p className="text-primary font-semibold text-sm">
-                            Person 2
-                          </p>
-
-                          <div className="text-sm text-gray-700 space-y-1">
-                            <p>
-                              <span className="font-semibold">Name:</span>{" "}
-                              {p.person2?.name || "-"}
+                        {/* Persons Grid */}
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                          {/* Person 1 */}
+                          <div className="bg-[#FFF5EE] border border-primary/20 rounded-xl p-4 space-y-2">
+                            <p className="text-primary font-semibold text-sm">
+                              Person 1
                             </p>
 
-                            <p>
-                              <span className="font-semibold">Birth Date:</span>{" "}
-                              {p.person2?.birthDate || "-"}
+                            <div className="text-sm text-gray-700 space-y-1">
+                              <p>
+                                <span className="font-semibold">Name:</span>{" "}
+                                {p.person1?.name || "-"}
+                              </p>
+
+                              <p>
+                                <span className="font-semibold">
+                                  Birth Date:
+                                </span>{" "}
+                                {p.person1?.birthDate || "-"}
+                              </p>
+
+                              <p>
+                                <span className="font-semibold">
+                                  Birth Time:
+                                </span>{" "}
+                                {p.person1?.birthTime || "-"}
+                              </p>
+
+                              <p>
+                                <span className="font-semibold">Location:</span>{" "}
+                                {p.person1?.location || "-"}
+                              </p>
+                            </div>
+                          </div>
+
+                          {/* Person 2 */}
+                          <div className="bg-[#FFF5EE] border border-primary/20 rounded-xl p-4 space-y-2">
+                            <p className="text-primary font-semibold text-sm">
+                              Person 2
                             </p>
 
-                            <p>
-                              <span className="font-semibold">Birth Time:</span>{" "}
-                              {p.person2?.birthTime || "-"}
-                            </p>
+                            <div className="text-sm text-gray-700 space-y-1">
+                              <p>
+                                <span className="font-semibold">Name:</span>{" "}
+                                {p.person2?.name || "-"}
+                              </p>
 
-                            <p>
-                              <span className="font-semibold">Location:</span>{" "}
-                              {p.person2?.location || "-"}
-                            </p>
+                              <p>
+                                <span className="font-semibold">
+                                  Birth Date:
+                                </span>{" "}
+                                {p.person2?.birthDate || "-"}
+                              </p>
+
+                              <p>
+                                <span className="font-semibold">
+                                  Birth Time:
+                                </span>{" "}
+                                {p.person2?.birthTime || "-"}
+                              </p>
+
+                              <p>
+                                <span className="font-semibold">Location:</span>{" "}
+                                {p.person2?.location || "-"}
+                              </p>
+                            </div>
                           </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                ))
+                  ))
+                ) : (
+                  <p>No predictions found.</p>
+                )
               ) : (
-                <p>No predictions found.</p>
-              )
-            ) : (
-              <></>
-            )}
-          </div>
-        )}
+                <></>
+              )}
+            </div>
+          )}
+        </div>
+        <Login
+          isOpen={showLogin}
+          onClose={() => {
+            setShowLogin(false);
+            navigate("/");
+          }}
+          screenName={"/profile"}
+          referralCodeData={referralCode}
+        />
       </div>
-      <Login
-        isOpen={showLogin}
-        onClose={() => {
-          setShowLogin(false);
-          navigate("/");
-        }}
-        screenName={"/profile"}
-        referralCodeData={referralCode}
-      />
     </div>
   );
 };

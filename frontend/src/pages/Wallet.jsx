@@ -172,25 +172,101 @@ const Wallet = () => {
   };
 
   return (
-    <div className="font-poppins mt-10">
-      <div className="flex justify-center items-center">
-        <div className="md:w-1/2 w-3/4 bg-[#EBEBEB] rounded-2xl p-3 flex flex-col justify-center items-center gap-3">
-          <h1 className=" text-black font-semibold text-xl">Your Balance</h1>
-          <h1 className=" text-primary font-bold text-xl">
-            {userData?.credits || 0} Credits
-          </h1>
-          <button
-            onClick={() => setShowModal(true)}
-            className="bg-primary text-white px-6 py-2 rounded-md"
-          >
-            Add Credit
-          </button>
+    // <div className="font-poppins mt-10">
+    //   <div className="flex justify-center items-center">
+    //     <div className="md:w-1/2 w-3/4 bg-[#EBEBEB] rounded-2xl p-3 flex flex-col justify-center items-center gap-3">
+    //       <h1 className=" text-black font-semibold text-xl">Your Balance</h1>
+    //       <h1 className=" text-primary font-bold text-xl">
+    //         {userData?.credits || 0} Credits
+    //       </h1>
+    //       <button
+    //         onClick={() => setShowModal(true)}
+    //         className="bg-primary text-white px-6 py-2 rounded-md"
+    //       >
+    //         Add Credit
+    //       </button>
+    //     </div>
+    //   </div>
+
+    //   {showModal && (
+    //     <AddCreditModal
+    //       onClose={() => setShowModal(false)}
+    //       onPay={handlePayment}
+    //       setPaymentLoading={setPaymentLoading}
+    //       paymentLoading={paymentLoading}
+    //     />
+    //   )}
+    <div className="font-poppins min-h-screen flex justify-center items-center bg-gradient-to-br from-orange-50 via-white to-orange-100 py-10 px-4">
+      <div className="w-full max-w-2xl">
+        {/* Balance Card */}
+        <div className="relative overflow-hidden bg-gradient-to-br from-primary to-orange-400 rounded-3xl shadow-2xl p-10 md:p-16 animate-scale-in">
+          {/* Animated Background Blobs */}
+          <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl animate-blob pointer-events-none"></div>
+          <div className="absolute bottom-0 left-0 w-72 h-72 bg-white/10 rounded-full blur-3xl animate-blob animation-delay-2000 pointer-events-none"></div>
+
+          {/* Content */}
+          <div className="relative z-10 text-center space-y-6">
+            {/* Icon */}
+            <div className="inline-flex items-center justify-center w-24 h-24 bg-white/20 backdrop-blur-sm rounded-full border-4 border-white/30 shadow-xl animate-bounce-gentle">
+              {userData.locationData &&
+              userData.locationData.country === "India" ? (
+                <h1 className="text-xl md:text-4xl text-white font-bold">₹</h1>
+              ) : (
+                <svg
+                  className="w-12 h-12 text-white"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path d="M8.433 7.418c.155-.103.346-.196.567-.267v1.698a2.305 2.305 0 01-.567-.267C8.07 8.34 8 8.114 8 8c0-.114.07-.34.433-.582zM11 12.849v-1.698c.22.071.412.164.567.267.364.243.433.468.433.582 0 .114-.07.34-.433.582a2.305 2.305 0 01-.567.267z" />
+                  <path
+                    fillRule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-13a1 1 0 10-2 0v.092a4.535 4.535 0 00-1.676.662C6.602 6.234 6 7.009 6 8c0 .99.602 1.765 1.324 2.246.48.32 1.054.545 1.676.662v1.941c-.391-.127-.68-.317-.843-.504a1 1 0 10-1.51 1.31c.562.649 1.413 1.076 2.353 1.253V15a1 1 0 102 0v-.092a4.535 4.535 0 001.676-.662C13.398 13.766 14 12.991 14 12c0-.99-.602-1.765-1.324-2.246A4.535 4.535 0 0011 9.092V7.151c.391.127.68.317.843.504a1 1 0 101.511-1.31c-.563-.649-1.413-1.076-2.354-1.253V5z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+              )}
+            </div>
+
+            {/* Balance Info */}
+            <div className="space-y-3">
+              <h1 className="text-white/90 font-semibold text-xl md:text-2xl animate-slide-in-left">
+                Your Balance
+              </h1>
+              <h2 className="text-white font-bold text-5xl md:text-6xl animate-scale-in">
+                {userData?.credits || 0}
+                <span className="text-3xl md:text-4xl ml-3">Credits</span>
+              </h2>
+            </div>
+
+            {/* Add Credit Button */}
+            <button
+              onClick={() => setShowModal(true)}
+              className="group relative bg-white text-primary font-bold text-xl px-10 py-5 rounded-xl shadow-lg hover:shadow-2xl transform hover:scale-105 active:scale-95 transition-all duration-300 overflow-hidden animate-pop-up"
+            >
+              {/* Shimmer Effect */}
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 pointer-events-none"></div>
+
+              <span className="relative flex items-center gap-2">
+                <svg
+                  className="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+                  />
+                </svg>
+                Add Credits
+              </span>
+            </button>
+          </div>
         </div>
       </div>
-      {/* <div className="p-3 md:p-9">
-        <h1 className="text-black text-xl font-semibold">Package History</h1>
-        <div></div>
-      </div> */}
+
       {showModal && (
         <AddCreditModal
           onClose={() => setShowModal(false)}

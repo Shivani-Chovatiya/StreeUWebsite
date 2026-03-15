@@ -17,19 +17,12 @@ const HypnoTherapy = () => {
     "Emotional Trauma",
   ];
   return (
-    <div className="font-poppins mt-10 p-6 md:p-16">
+    <div className="font-poppins mt-10 px-4 md:px-8 lg:px-16  mx-auto">
       <div className="flex flex-col gap-6 p-3 md:p-6 justify-center items-center">
-        <img src={vector} className="" alt="" />
-        <h1 className="p-3 border rounded-2xl text-sm md:text-xl">
-          <span className="text-white bg-primary rounded-full text-sm md:text-xl px-2 py-1 md:px-4 md:py-2">
-            New
-          </span>{" "}
-          {t("aboutus.badge")}
-        </h1>
-        <h1 className="text-2xl md:text-4xl lg:text-6xl font-bold text-black text-center p-3">
+        <h1 className="text-2xl md:text-4xl lg:text-6xl font-bold text-black text-center p-3 animate-slide-up">
           Hypnotherapy
         </h1>
-        <h1 className="text-xs md:text-sm font-semibold md:w-3/4 text-black text-center p-3">
+        <h1 className="text-xs md:text-sm font-semibold md:w-3/4 text-black text-center p-3 animate-slide-up-delay">
           Integrating future predictions with psychological counselling. Get
           personalized insights and guidance tailored for you. Save your
           valuable time & money
@@ -116,8 +109,8 @@ const HypnoTherapy = () => {
         </div>
       </div>
       <div
-        style={{ backgroundImage: `url(${Wheel})` }}
-        className="w-full md:min-h-screen bg-contain bg-right bg-no-repeat mt-10 justify-center items-center flex"
+        // style={{ backgroundImage: `url(${Wheel})` }}md:min-h-screen
+        className="w-full  bg-contain bg-right bg-no-repeat mt-10 justify-center items-center flex"
       >
         <InviteFriend />
       </div>

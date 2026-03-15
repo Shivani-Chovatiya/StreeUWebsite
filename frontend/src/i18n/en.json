@@ -271,13 +271,31 @@
 
       "servicesTitle": "SERVICES",
       "services": [
-        { "label": "Future Prediction", "path": "/future-prediction" },
-        { "label": "Compatibility", "path": "/compatibility" },
-        { "label": "Hypnotherapy", "path": "/hypnotherapy" },
-        { "label": "Birth Time Rectification", "path": "/birth-rectification" },
-        { "label": "Free Therapy", "path": "/free-therapy" },
-        { "label": "Paid Therapy", "path": "/paid-therapy" },
-        { "label": "Assessments", "path": "/assessments" }
+        { "label": "Future Prediction", "path": "/future-prediction/credit1" },
+        {
+          "label": "Compatibility",
+          "path": "/future-predictionscreen/Compatibility"
+        },
+        {
+          "label": "Hypnotherapy",
+          "path": "/psychological-counselling/hypnotherapy"
+        },
+        {
+          "label": "Birth Time Rectification",
+          "path": "/future-predictionscreen/Birth_Rectification"
+        },
+        {
+          "label": "Free Therapy",
+          "path": "/psychological-counselling/free-therapy"
+        },
+        {
+          "label": "Paid Therapy",
+          "path": "/psychological-counselling/paid-therapy"
+        },
+        {
+          "label": "Assessments",
+          "path": "/psychological-counselling/free-assessments"
+        }
       ],
 
       "linkTitle": "LINK",
