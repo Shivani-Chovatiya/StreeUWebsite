@@ -144,16 +144,22 @@ const FreeTherapy = () => {
     //       </div>
     //     </div>
     //   )}max-w-7xl
-    <div className="font-poppins mt-10 px-4 md:px-8  mx-auto">
+    <div className="font-poppins ">
       {/* Header Section */}
-      <div className="flex flex-col gap-6 p-3 md:p-6 justify-center items-center">
-        <h1 className="text-3xl md:text-4xl lg:text-6xl font-bold text-black text-center animate-slide-up">
-          {t("psychology.freeTipsTitle")}
-        </h1>
+      <div className="relative overflow-hidden bg-gradient-to-br from-orange-50 via-white to-orange-100 py-16 md:py-20">
+        {/* Decorative Blobs */}
+        <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-blob pointer-events-none"></div>
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-orange-300/5 rounded-full blur-3xl animate-blob animation-delay-2000 pointer-events-none"></div>
 
-        <p className="text-sm md:text-sm lg:text-sm max-w-3xl text-black font-semibold text-center animate-slide-up-delay">
-          {t("psychology.freeTipsDesc")}
-        </p>
+        <div className="relative z-10 flex flex-col gap-6 px-4 md:px-6 justify-center items-center max-w-5xl mx-auto">
+          <h1 className="text-3xl md:text-4xl lg:text-6xl font-bold text-black text-center animate-slide-up">
+            {t("psychology.freeTipsTitle")}
+          </h1>
+
+          <p className="text-sm md:text-sm lg:text-sm max-w-3xl text-black font-semibold text-center animate-slide-up-delay">
+            {t("psychology.freeTipsDesc")}
+          </p>
+        </div>
       </div>
 
       {/* View Tips Modal */}
@@ -244,7 +250,7 @@ const FreeTherapy = () => {
           </div>
         </div>
       ) : (
-        <div className="py-6">
+        <div className=" p-3 md:p-6">
           {/* Tips Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
             {therapyTips.map((topic, index) => (

@@ -231,17 +231,23 @@ const PaidAssessments = () => {
   const isIndia = timeZone === "Asia/Kolkata" || timeZone === "Asia/Calcutta";
 
   return (
-    <div className="font-poppins mt-10 px-4 md:px-8 lg:px-16  mx-auto">
+    <div className="font-poppins ">
       {/* max-w-7xl */}
-      <div className="flex flex-col gap-6 p-3 md:p-6 justify-center items-center">
-        <h1 className="text-2xl md:text-4xl lg:text-6xl font-bold text-black text-center p-3 animate-slide-up">
-          Paid Assessment
-        </h1>
-        <h1 className="text-sm md:text-sm lg:text-sm max-w-3xl text-black font-semibold text-center animate-slide-up-delay">
-          Integrating future predictions with psychological counselling. Get
-          personalized insights and guidance tailored for you. Save your
-          valuable time & money
-        </h1>
+      <div className="relative overflow-hidden bg-gradient-to-br from-orange-50 via-white to-orange-100 py-16 md:py-20">
+        {/* Decorative Blobs */}
+        <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-blob pointer-events-none"></div>
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-orange-300/5 rounded-full blur-3xl animate-blob animation-delay-2000 pointer-events-none"></div>
+
+        <div className="relative z-10 flex flex-col gap-6 px-4 md:px-6 justify-center items-center max-w-5xl mx-auto">
+          <h1 className="text-2xl md:text-4xl lg:text-6xl font-bold text-black text-center p-3 animate-slide-up">
+            Paid Assessment
+          </h1>
+          <h1 className="text-sm md:text-sm lg:text-sm max-w-3xl text-black font-semibold text-center animate-slide-up-delay">
+            Integrating future predictions with psychological counselling. Get
+            personalized insights and guidance tailored for you. Save your
+            valuable time & money
+          </h1>
+        </div>
       </div>
       {/* <div className="flex flex-col gap-6 justify-center items-center">
         <h1 className="font-bold text-black text-xl">
@@ -310,7 +316,7 @@ const PaidAssessments = () => {
           )}
         </div>
       </div> */}
-      <div className="flex flex-col gap-8 justify-center items-center mx-auto">
+      <div className="flex flex-col gap-8 justify-center items-center mx-auto p-3 md:p-6">
         {/* Header with Counter max-w-5xl */}
         <div className="w-full bg-gradient-to-r from-primary/10 via-orange-50 to-primary/10 rounded-2xl p-6 shadow-md animate-fade-in-down">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">

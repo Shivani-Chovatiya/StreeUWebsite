@@ -334,22 +334,29 @@ const FreeAssessments = () => {
   const rightColumnSymptoms = symptoms.slice(midpoint);
 
   return (
-    <div className="font-poppins mt-10 px-4 md:px-8 lg:px-16  mx-auto">
+    <div className="font-poppins ">
       {/* Header Section max-w-7xl*/}
-      <div className="flex flex-col gap-6 p-3 md:p-6 justify-center items-center animate-fade-in-down">
-        <h1 className="text-3xl md:text-4xl lg:text-6xl font-bold text-black text-center animate-slide-up">
-          Free Assessment
-        </h1>
+      <div className="relative overflow-hidden bg-gradient-to-br from-orange-50 via-white to-orange-100 py-16 md:py-20">
+        {/* Decorative Blobs */}
+        <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-blob pointer-events-none"></div>
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-orange-300/5 rounded-full blur-3xl animate-blob animation-delay-2000 pointer-events-none"></div>
 
-        <p className="text-sm md:text-sm lg:text-sm max-w-3xl text-black font-semibold text-center animate-slide-up-delay">
-          Integrating future predictions with psychological counselling. Get
-          personalized insights and guidance tailored for you. Save your
-          valuable time & money
-        </p>
+        <div className="relative z-10 flex flex-col gap-6 px-4 md:px-6 justify-center items-center max-w-5xl mx-auto">
+          <h1 className="text-3xl md:text-4xl lg:text-6xl font-bold text-black text-center animate-slide-up">
+            Free Assessment
+          </h1>
+
+          <p className="text-sm md:text-sm lg:text-sm max-w-3xl text-black font-semibold text-center animate-slide-up-delay">
+            Integrating future predictions with psychological counselling. Get
+            personalized insights and guidance tailored for you. Save your
+            valuable time & money
+          </p>
+        </div>
       </div>
 
       {/* Symptoms Selection Section */}
-      <div className="flex flex-col gap-8 justify-center items-center mt-12 animate-fade-in">
+
+      <div className="p-3 md:p-6 flex flex-col gap-8 justify-center items-center mt-12 animate-fade-in ">
         {/* Counter & Instructions max-w-5xl*/}
         <div className="w-full  bg-gradient-to-r from-primary/10 via-orange-50 to-primary/10 rounded-2xl p-6 shadow-md">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
@@ -507,7 +514,7 @@ const FreeAssessments = () => {
       </div>
 
       {/* Invite Friend Section */}
-      <div className="w-full bg-contain bg-right bg-no-repeat mt-16 justify-center items-center flex">
+      <div className=" w-full bg-contain bg-right bg-no-repeat mt-16 justify-center items-center flex">
         <InviteFriend />
       </div>
 
