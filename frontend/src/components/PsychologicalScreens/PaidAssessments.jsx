@@ -358,7 +358,8 @@ const PaidAssessments = () => {
                 return (
                   <div
                     key={index}
-                    onClick={() => {
+                    onClick={(e) => {
+                      e.stopPropagation();
                       if (!isPurchased && !isLoading) {
                         handleSubmit(item);
                       }
