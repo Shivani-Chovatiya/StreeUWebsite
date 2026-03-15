@@ -170,6 +170,10 @@ export default {
           "33%": { transform: "translate(30px, -50px) scale(1.1)" },
           "66%": { transform: "translate(-20px, 20px) scale(0.9)" },
         },
+        "scale-in-popup": {
+          "0%": { opacity: "0", transform: "scale(0.88)" },
+          "100%": { opacity: "1", transform: "scale(1)" },
+        },
       },
       animation: {
         "fade-in-down": "fade-in-down 0.8s ease-out",
@@ -194,6 +198,8 @@ export default {
         "scale-in": "scale-in 0.5s ease-out",
         blob: "blob 7s infinite",
         slowspin: "spin 15s linear infinite",
+        "scale-in-popup":
+          "scale-in-popup 0.22s cubic-bezier(0.22,1,0.36,1) both",
       },
       backgroundSize: {
         "200%": "200%",
@@ -224,6 +230,10 @@ export default {
         ".animation-delay-2000": {
           "animation-delay": "2s",
         },
+        ".animation-delay-100": { "animation-delay": "0.1s" },
+        ".animation-delay-300": { "animation-delay": "0.3s" },
+        ".animation-delay-400": { "animation-delay": "0.4s" },
+        ".animation-delay-500": { "animation-delay": "0.5s" },
       };
       addUtilities(newUtilities);
     },
