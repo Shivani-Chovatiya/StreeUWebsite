@@ -43,6 +43,7 @@ const FreeTherapy = () => {
       const q = query(
         collection(db, "therapyTips"),
         where("status", "==", "Active"),
+        orderBy("createdAt", "asc"),
       );
 
       const querySnapshot = await getDocs(q);

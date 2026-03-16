@@ -212,24 +212,24 @@ const Footer = () => {
               {/* <span className="absolute -bottom-1 left-0 w-12 h-1 bg-primary rounded-full"></span> */}
             </h2>
             <ul className="space-y-4 text-gray-600 text-sm">
-              <li className="flex items-start gap-3 group hover:text-primary transition-colors duration-300">
+              {/* <li className="flex items-start gap-3 group hover:text-primary transition-colors duration-300">
                 <div className="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0 group-hover:bg-primary group-hover:text-white transition-all duration-300">
                   <FaPhoneAlt className="text-xs" />
                 </div>
                 <span className="mt-1">{t("footer.contactPhone")}</span>
-              </li>
+              </li> */}
               <li className="flex items-start gap-3 group hover:text-primary transition-colors duration-300">
                 <div className="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0 group-hover:bg-primary group-hover:text-white transition-all duration-300">
                   <FaEnvelope className="text-xs" />
                 </div>
-                <span className="mt-1">{t("footer.contactEmail")}</span>
+                <span className="mt-1">steeryourhappiness@gmail.com</span>
               </li>
-              <li className="flex items-start gap-3 group hover:text-primary transition-colors duration-300">
+              {/* <li className="flex items-start gap-3 group hover:text-primary transition-colors duration-300">
                 <div className="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0 group-hover:bg-primary group-hover:text-white transition-all duration-300">
                   <FaMapMarkerAlt className="text-xs" />
                 </div>
                 <span className="mt-1">{t("footer.contactAddress")}</span>
-              </li>
+              </li> */}
             </ul>
           </div>
         </div>
