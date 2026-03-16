@@ -229,43 +229,48 @@ const FuturePrediction2 = () => {
 
   return (
     <div className="font-poppins mt-10">
-      <div className="flex flex-col gap-6 p-3 md:p-6 justify-center items-center bg-[#F5D6C7] m-3 md:m-6 rounded-2xl">
-        {/* <img src={vector} className="" /> */}
-        <h1 className="p-3 border rounded-2xl text-xs md:text-xl animate-slide-in-left">
-          <span className="animate-pulse text-white bg-primary rounded-full text-sm md:text-xl px-2 py-1  md:px-4 md:py-2">
-            New
-          </span>{" "}
-          {t("aboutus.badge")}
-        </h1>
-        <h1 className="animate-slide-up text-2xl md:text-4xl lg:text-6xl font-bold text-black text-center p-3">
-          {t("futurePrediction.pageTitle")}
-        </h1>
-        <h1 className="animate-slide-up-delay text-xs md:text-sm lg:text-sm font-semibold md:w-3/4 text-black text-center p-3">
-          {t("futurePrediction.subtitle")}
-        </h1>
-        {isLoggedIn ? (
-          <button
-            onClick={() => handleLogout()}
-            className="bg-primary text-white px-8 py-3 rounded-lg font-semibold flex items-center mx-auto hover:opacity-90 transition-opacity"
-          >
-            Logout
-          </button>
-        ) : (
-          <button
-            onClick={() => {
-              setScreenName(`future-predictionscreen/${selectedCredit}`);
-              setShowLogin(true);
-            }}
-            className="bg-primary text-white px-8 py-3 rounded-lg font-semibold flex items-center mx-auto hover:opacity-90 transition-opacity"
-          >
-            {t("futurePrediction.login")}
-          </button>
-        )}
-        <Login
-          isOpen={showLogin}
-          onClose={() => setShowLogin(false)}
-          screenName={screenName}
-        />
+      <div className="border border-primary m-3 md:m-6 rounded-2xl shadow-xl relative overflow-hidden bg-gradient-to-br from-orange-50 via-white to-orange-100 py-16 md:py-20">
+        {/* Decorative Blobs */}
+        <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-blob pointer-events-none"></div>
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-orange-300/5 rounded-full blur-3xl animate-blob animation-delay-2000 pointer-events-none"></div>
+
+        <div className="relative z-10 flex flex-col gap-6 px-4 md:px-6 justify-center items-center max-w-5xl mx-auto">
+          <h1 className="p-3 border rounded-2xl text-xs md:text-xl animate-slide-in-left">
+            <span className="animate-pulse text-white bg-primary rounded-full text-sm md:text-xl px-2 py-1  md:px-4 md:py-2">
+              New
+            </span>{" "}
+            {t("aboutus.badge")}
+          </h1>
+          <h1 className="animate-slide-up text-2xl md:text-4xl lg:text-6xl font-bold text-black text-center p-3">
+            {t("futurePrediction.pageTitle")}
+          </h1>
+          <h1 className="animate-slide-up-delay text-xs md:text-sm lg:text-sm font-semibold md:w-3/4 text-black text-center p-3">
+            {t("futurePrediction.subtitle")}
+          </h1>
+          {isLoggedIn ? (
+            <button
+              onClick={() => handleLogout()}
+              className="bg-primary text-white px-8 py-3 rounded-lg font-semibold flex items-center mx-auto hover:opacity-90 transition-opacity"
+            >
+              Logout
+            </button>
+          ) : (
+            <button
+              onClick={() => {
+                setScreenName(`future-predictionscreen/${selectedCredit}`);
+                setShowLogin(true);
+              }}
+              className="bg-primary text-white px-8 py-3 rounded-lg font-semibold flex items-center mx-auto hover:opacity-90 transition-opacity"
+            >
+              {t("futurePrediction.login")}
+            </button>
+          )}
+          <Login
+            isOpen={showLogin}
+            onClose={() => setShowLogin(false)}
+            screenName={screenName}
+          />
+        </div>
       </div>
 
       {/* Section 3: Credit/Question Selection Tabs */}

@@ -13,9 +13,14 @@ import diamond5 from "../assets/diamondimg/5.png";
 import Testimonials from "../components/Testimonials";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
+import { useScrollAnimation } from "../components/useScrollAnimation";
 
 const HomePage = () => {
   const [activeCard, setActiveCard] = useState(null);
+  const [heroRef, heroVisible] = useScrollAnimation();
+  const [aboutRef, aboutVisible] = useScrollAnimation();
+  const [predictionRef, predictionVisible] = useScrollAnimation();
+  const [psychologyRef, psychologyVisible] = useScrollAnimation();
   const { t } = useTranslation();
   const navigate = useNavigate();
   const freeQuestions = [
@@ -314,25 +319,479 @@ const HomePage = () => {
     //   <Testimonials />
     //   {/* </div> */}
     // </div>
+    // <div className="font-poppins ">
+    //   {/* Hero Section with Gradient Background */}
+    //   <section className="relative overflow-hidden bg-gradient-to-br from-orange-50 via-white to-orange-100 min-h-screen flex items-center py-16 px-4">
+    //     {/* Animated Background Blobs */}
+    //     <div className="absolute top-0 right-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-blob"></div>
+    //     <div className="absolute bottom-0 left-0 w-96 h-96 bg-orange-300/10 rounded-full blur-3xl animate-blob animation-delay-2000"></div>
+
+    //     <div className="relative z-10 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+    //       {/* LEFT SIDE - Text Content */}
+    //       <div className="order-2 lg:order-1 text-center lg:text-left space-y-6 animate-slide-in-left">
+    //         <h1 className="text-4xl lg:text-5xl font-bold text-primary leading-tight animate-slide-up">
+    //           {t("hero.title")}
+    //         </h1>
+
+    //         <p className="text-gray-700 text-lg lg:text-xl leading-relaxed font-medium animate-slide-up-delay">
+    //           {t("hero.description")}
+    //         </p>
+
+    //         <div className="flex gap-4 flex-wrap justify-center lg:justify-start animate-pop-up">
+    //           <button
+    //             onClick={() =>
+    //               navigate("/psychological-counselling/free-therapy")
+    //             }
+    //             className="group relative bg-primary hover:bg-primary/90 text-white px-8 py-4 rounded-xl font-bold text-lg shadow-lg hover:shadow-2xl transform hover:scale-105 active:scale-95 transition-all duration-300 overflow-hidden"
+    //           >
+    //             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+    //             <span className="relative">{t("hero.btnTherapy")}</span>
+    //           </button>
+
+    //           <button
+    //             onClick={() => navigate("/future-prediction/credit1")}
+    //             className="group border-2 border-primary text-primary px-8 py-4 rounded-xl font-bold text-lg hover:bg-primary hover:text-white transform hover:scale-105 active:scale-95 transition-all duration-300"
+    //           >
+    //             {t("hero.btnPredict")}
+    //           </button>
+    //         </div>
+    //       </div>
+
+    //       {/* RIGHT SIDE - Zodiac Image */}
+    //       <div className="order-1 lg:order-2 flex justify-center animate-slide-in-right">
+    //         <div className="relative">
+    //           {/* Glow Effect */}
+    //           <div className="absolute inset-0 bg-primary/20 rounded-full blur-3xl animate-pulse"></div>
+    //           <img
+    //             src={zodiac2}
+    //             alt="Zodiac Circle"
+    //             className="relative w-3/4 lg:w-full mx-auto opacity-90 animate-spin-slow drop-shadow-2xl"
+    //           />
+    //         </div>
+    //       </div>
+    //     </div>
+    //   </section>
+    //   {/* About Section */}
+    //   <section className="relative overflow-hidden bg-gradient-to-br from-orange-50/50 via-white to-orange-50/50 py-20 px-4">
+    //     {/* Decorative Background Elements */}
+    //     <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl pointer-events-none"></div>
+    //     <div className="absolute bottom-0 left-0 w-96 h-96 bg-orange-300/5 rounded-full blur-3xl pointer-events-none"></div>
+
+    //     <div className="relative z-10 max-w-7xl mx-auto">
+    //       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+    //         {/* LEFT SIDE - Image */}
+    //         <div className="flex justify-center lg:justify-start animate-slide-in-left">
+    //           <div className="relative">
+    //             {/* Decorative Border */}
+    //             <div className="absolute -inset-4 bg-gradient-to-br from-primary/20 to-orange-400/20 rounded-3xl blur-xl"></div>
+    //             <img
+    //               src={headerimg}
+    //               className="relative w-full max-w-md object-cover rounded-3xl shadow-2xl hover:scale-105 transition-transform duration-500"
+    //               alt="About Steer-U"
+    //             />
+    //           </div>
+    //         </div>
+
+    //         {/* RIGHT SIDE - Content */}
+    //         <div className="space-y-6 animate-slide-in-right">
+    //           {/* Subtitle */}
+    //           <div className="inline-block">
+    //             <span className="text-sm md:text-base font-bold text-primary uppercase tracking-wider px-4 py-2 bg-primary/10 rounded-full">
+    //               {t("about.title")}
+    //             </span>
+    //           </div>
+
+    //           {/* Main Heading */}
+    //           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight">
+    //             About <span className="text-primary">Steer-U</span>
+    //           </h2>
+
+    //           {/* Description */}
+    //           <div className="space-y-4 text-gray-700 text-base md:text-lg leading-relaxed">
+    //             <p>{t("about.description1")}</p>
+    //             <p>{t("about.description2")}</p>
+    //             <p>{t("about.description3")}</p>
+    //           </div>
+
+    //           {/* Optional: Features List */}
+    //           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
+    //             <div className="flex items-start gap-3">
+    //               <div className="w-6 h-6 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+    //                 <svg
+    //                   className="w-4 h-4 text-primary"
+    //                   fill="currentColor"
+    //                   viewBox="0 0 20 20"
+    //                 >
+    //                   <path
+    //                     fillRule="evenodd"
+    //                     d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+    //                     clipRule="evenodd"
+    //                   />
+    //                 </svg>
+    //               </div>
+    //               <div>
+    //                 <h4 className="font-semibold text-gray-900">
+    //                   Instant Predictions
+    //                 </h4>
+    //                 <p className="text-sm text-gray-600">
+    //                   Get accurate future insights
+    //                 </p>
+    //               </div>
+    //             </div>
+
+    //             <div className="flex items-start gap-3">
+    //               <div className="w-6 h-6 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+    //                 <svg
+    //                   className="w-4 h-4 text-primary"
+    //                   fill="currentColor"
+    //                   viewBox="0 0 20 20"
+    //                 >
+    //                   <path
+    //                     fillRule="evenodd"
+    //                     d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+    //                     clipRule="evenodd"
+    //                   />
+    //                 </svg>
+    //               </div>
+    //               <div>
+    //                 <h4 className="font-semibold text-gray-900">
+    //                   Expert Counselling
+    //                 </h4>
+    //                 <p className="text-sm text-gray-600">
+    //                   Certified psychologists
+    //                 </p>
+    //               </div>
+    //             </div>
+
+    //             <div className="flex items-start gap-3">
+    //               <div className="w-6 h-6 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+    //                 <svg
+    //                   className="w-4 h-4 text-primary"
+    //                   fill="currentColor"
+    //                   viewBox="0 0 20 20"
+    //                 >
+    //                   <path
+    //                     fillRule="evenodd"
+    //                     d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+    //                     clipRule="evenodd"
+    //                   />
+    //                 </svg>
+    //               </div>
+    //               <div>
+    //                 <h4 className="font-semibold text-gray-900">
+    //                   Confidential
+    //                 </h4>
+    //                 <p className="text-sm text-gray-600">
+    //                   Your privacy guaranteed
+    //                 </p>
+    //               </div>
+    //             </div>
+
+    //             <div className="flex items-start gap-3">
+    //               <div className="w-6 h-6 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+    //                 <svg
+    //                   className="w-4 h-4 text-primary"
+    //                   fill="currentColor"
+    //                   viewBox="0 0 20 20"
+    //                 >
+    //                   <path
+    //                     fillRule="evenodd"
+    //                     d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+    //                     clipRule="evenodd"
+    //                   />
+    //                 </svg>
+    //               </div>
+    //               <div>
+    //                 <h4 className="font-semibold text-gray-900">Save Time</h4>
+    //                 <p className="text-sm text-gray-600">
+    //                   No physical appointments needed
+    //                 </p>
+    //               </div>
+    //             </div>
+    //           </div>
+
+    //           {/* Optional: CTA Button */}
+    //           <div className="pt-6">
+    //             <button
+    //               onClick={() => navigate("/aboutus")}
+    //               className="group relative bg-primary hover:bg-primary/90 text-white px-8 py-4 rounded-xl font-bold shadow-lg hover:shadow-2xl transform hover:scale-105 active:scale-95 transition-all duration-300 overflow-hidden"
+    //             >
+    //               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+    //               <span className="relative flex items-center gap-2">
+    //                 Learn More
+    //                 <svg
+    //                   className="w-5 h-5 group-hover:translate-x-1 transition-transform"
+    //                   fill="none"
+    //                   stroke="currentColor"
+    //                   viewBox="0 0 24 24"
+    //                 >
+    //                   <path
+    //                     strokeLinecap="round"
+    //                     strokeLinejoin="round"
+    //                     strokeWidth={2}
+    //                     d="M13 7l5 5m0 0l-5 5m5-5H6"
+    //                   />
+    //                 </svg>
+    //               </span>
+    //             </button>
+    //           </div>
+    //         </div>
+    //       </div>
+    //     </div>
+    //   </section>
+    //   {/* About Section */}
+    //   {/* <section className="bg-white py-16 px-4 bg-gradient-to-br from-orange-50 via-white to-orange-100 ">
+    //     <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+    //       <div className="flex justify-center animate-scale-in">
+    //         <img
+    //           src={headerimg}
+    //           className="w-3/4 md:w-1/2 object-cover rounded-3xl shadow-2xl hover:scale-105 transition-transform duration-500"
+    //           alt="About"
+    //         />
+    //       </div>
+
+    //       <div className="space-y-6 animate-slide-in-right">
+    //         <h2 className="font-bold text-primary text-3xl md:text-4xl">
+    //           {t("about.title")}
+    //         </h2>
+    //         <div className="text-gray-700 text-sm md:text-base leading-relaxed space-y-4">
+    //           <p>{t("about.description1")}</p>
+    //           <p>{t("about.description2")}</p>
+    //           <p>{t("about.description3")}</p>
+    //         </div>
+    //       </div>
+    //     </div>
+    //   </section> */}
+
+    //   {/* Future Prediction Section */}
+    //   <section
+    //     className="relative bg-cover bg-center bg-no-repeat py-16 px-4"
+    //     style={{ backgroundImage: `url(${zodiacBg})` }}
+    //   >
+    //     {/* Gradient Overlay */}
+    //     <div className="absolute inset-0 bg-gradient-to-br from-white/95 via-orange-50/90 to-white/95"></div>
+
+    //     <div className="relative z-10 max-w-6xl mx-auto">
+    //       {/* Header */}
+    //       <div className="text-center mb-12 space-y-4 animate-slide-up">
+    //         <h2 className="text-3xl md:text-4xl font-bold text-primary">
+    //           {t("futurePrediction.title")}
+    //         </h2>
+    //         <p className="text-sm md:text-base text-gray-700 max-w-3xl mx-auto leading-relaxed">
+    //           {t("futurePrediction.subtitle")}
+    //         </p>
+    //       </div>
+
+    //       {/* Cards Container */}
+    //       <div className="flex flex-col md:flex-row items-stretch justify-center gap-6 mb-12">
+    //         {/* Free Questions Card */}
+    //         <div
+    //           onMouseEnter={() => setActiveCard("free")}
+    //           onMouseLeave={() => setActiveCard(null)}
+    //           className={`p-8 rounded-3xl flex-1 transition-all duration-500 cursor-pointer animate-slide-in-left ${
+    //             activeCard === "free"
+    //               ? "bg-gradient-to-br from-primary to-orange-400 text-white scale-105 shadow-2xl"
+    //               : "bg-white border-2 border-primary/30 hover:border-primary shadow-lg"
+    //           }`}
+    //         >
+    //           <h3 className="text-2xl md:text-3xl font-bold mb-6">
+    //             {t("futurePrediction.freeTitle")}
+    //           </h3>
+    //           <ul className="space-y-4 text-sm md:text-base">
+    //             {freeQuestions.map((q, i) => (
+    //               <li key={i} className="flex items-start">
+    //                 <span className="mr-3 text-xl">✦</span>
+    //                 <span>{q}</span>
+    //               </li>
+    //             ))}
+    //           </ul>
+    //         </div>
+
+    //         {/* Paid Packages Card */}
+    //         <div
+    //           onMouseEnter={() => setActiveCard("paid")}
+    //           onMouseLeave={() => setActiveCard(null)}
+    //           className={`p-8 rounded-3xl flex-1 transition-all duration-500 cursor-pointer animate-slide-in-right ${
+    //             activeCard === "paid"
+    //               ? "bg-gradient-to-br from-primary to-orange-400 text-white scale-105 shadow-2xl"
+    //               : "bg-white border-2 border-primary/30 hover:border-primary shadow-lg"
+    //           }`}
+    //         >
+    //           <h3 className="text-2xl md:text-3xl font-bold mb-6">
+    //             {t("futurePrediction.paidTitle")}
+    //           </h3>
+    //           <div className="space-y-4">
+    //             {paidPackages.map((pkg, i) => (
+    //               <div
+    //                 key={i}
+    //                 className={`flex justify-between items-center pb-4 border-b last:border-0 ${
+    //                   activeCard === "paid"
+    //                     ? "border-white/20"
+    //                     : "border-gray-200"
+    //                 }`}
+    //               >
+    //                 <div className="text-left">
+    //                   <span className="font-bold text-xl">{pkg.price}</span>
+    //                   {pkg.discount && (
+    //                     <span className="ml-2 text-sm font-semibold opacity-80">
+    //                       {pkg.discount}
+    //                     </span>
+    //                   )}
+    //                 </div>
+    //                 <div className="text-right text-sm md:text-base">
+    //                   {pkg.details}
+    //                 </div>
+    //               </div>
+    //             ))}
+    //           </div>
+    //         </div>
+    //       </div>
+
+    //       {/* CTA Button */}
+    //       <div className="flex justify-center animate-pop-up">
+    //         <button
+    //           onClick={() => navigate("/future-prediction/credit1")}
+    //           className="group relative bg-primary hover:bg-primary/90 text-white px-10 py-4 rounded-xl font-bold text-lg shadow-lg hover:shadow-2xl transform hover:scale-105 active:scale-95 transition-all duration-300 overflow-hidden"
+    //         >
+    //           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+    //           <span className="relative flex items-center gap-2">
+    //             {t("futurePrediction.cta")}
+    //             <svg
+    //               className="w-5 h-5 group-hover:translate-x-1 transition-transform"
+    //               fill="none"
+    //               stroke="currentColor"
+    //               viewBox="0 0 24 24"
+    //             >
+    //               <path
+    //                 strokeLinecap="round"
+    //                 strokeLinejoin="round"
+    //                 strokeWidth={2}
+    //                 d="M13 7l5 5m0 0l-5 5m5-5H6"
+    //               />
+    //             </svg>
+    //           </span>
+    //         </button>
+    //       </div>
+
+    //       {/* Difference Section */}
+    //       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-16 items-center">
+    //         <div className="order-2 md:order-1 space-y-6 animate-slide-in-left">
+    //           <h3 className="text-3xl md:text-4xl font-bold text-primary">
+    //             {t("difference.title")}
+    //           </h3>
+    //           <div className="text-gray-700 text-sm md:text-base leading-relaxed space-y-4">
+    //             <p>{t("difference.description")}</p>
+    //             <p>{t("difference.description2")}</p>
+    //           </div>
+    //         </div>
+    //         <div className="order-1 md:order-2 flex justify-center animate-scale-in">
+    //           <img
+    //             src={yimage}
+    //             alt="Difference"
+    //             className="w-3/4 md:w-full rounded-3xl shadow-xl hover:scale-105 transition-transform duration-500"
+    //           />
+    //         </div>
+    //       </div>
+    //     </div>
+    //   </section>
+
+    //   {/* Psychology Section */}
+    //   <section className="bg-gradient-to-br from-white via-orange-50 to-white py-16 px-4">
+    //     <div className="max-w-7xl mx-auto">
+    //       {/* Header */}
+    //       <div className="text-center mb-12 space-y-4 animate-slide-up">
+    //         <h2 className="text-3xl md:text-4xl font-bold text-primary">
+    //           {t("psychology.title")}
+    //         </h2>
+    //         <p className="text-sm md:text-base text-gray-700 max-w-3xl mx-auto leading-relaxed">
+    //           {t("psychology.subtitle")}
+    //         </p>
+    //       </div>
+
+    //       {/* Cards Grid */}
+    //       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+    //         {psychologicalData.map((item, index) => (
+    //           <div
+    //             key={index}
+    //             className="group bg-white rounded-2xl shadow-lg hover:shadow-2xl p-6 flex flex-col items-center justify-between gap-4 border-2 border-transparent hover:border-primary transition-all duration-300 hover:scale-105 animate-scale-in"
+    //             style={{ animationDelay: `${index * 0.1}s` }}
+    //           >
+    //             {/* Icon with Background */}
+    //             <div className="w-20 h-20 bg-gradient-to-br from-primary/10 to-orange-100 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+    //               <img
+    //                 src={item.img}
+    //                 className="w-12 h-12 object-contain"
+    //                 alt={item.title}
+    //               />
+    //             </div>
+
+    //             {/* Text Content */}
+    //             <div className="text-center space-y-2">
+    //               <h3 className="text-primary text-base md:text-lg font-bold">
+    //                 {item.title}
+    //               </h3>
+    //               <p className="text-gray-600 text-xs md:text-sm leading-relaxed">
+    //                 {item.details}
+    //               </p>
+    //             </div>
+
+    //             {/* Read More Button */}
+    //             <button
+    //               onClick={() => navigate(item.path)}
+    //               className="text-primary font-semibold text-sm hover:underline flex items-center gap-1 group-hover:gap-2 transition-all"
+    //             >
+    //               {t("psychology.readMore")}
+    //               <svg
+    //                 className="w-4 h-4"
+    //                 fill="none"
+    //                 stroke="currentColor"
+    //                 viewBox="0 0 24 24"
+    //               >
+    //                 <path
+    //                   strokeLinecap="round"
+    //                   strokeLinejoin="round"
+    //                   strokeWidth={2}
+    //                   d="M9 5l7 7-7 7"
+    //                 />
+    //               </svg>
+    //             </button>
+    //           </div>
+    //         ))}
+    //       </div>
+    //     </div>
+    //   </section>
+
+    //   {/* Testimonials */}
+    //   <Testimonials />
+    // </div>
     <div className="font-poppins">
-      {/* Hero Section with Gradient Background */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-orange-50 via-white to-orange-100 min-h-screen flex items-center py-16 px-4">
+      {/* Hero Section - Always visible on load */}
+      <section
+        ref={heroRef}
+        className="relative overflow-hidden bg-gradient-to-br from-orange-50 via-white to-orange-100 min-h-screen flex items-center py-16 px-4"
+      >
         {/* Animated Background Blobs */}
         <div className="absolute top-0 right-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-blob"></div>
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-orange-300/10 rounded-full blur-3xl animate-blob animation-delay-2000"></div>
 
         <div className="relative z-10 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* LEFT SIDE - Text Content */}
-          <div className="order-2 lg:order-1 text-center lg:text-left space-y-6 animate-slide-in-left">
-            <h1 className="text-4xl lg:text-5xl font-bold text-primary leading-tight animate-slide-up">
+          <div
+            className={`order-2 lg:order-1 text-center lg:text-left space-y-6 transition-all duration-1000 ${
+              heroVisible
+                ? "opacity-100 translate-x-0"
+                : "opacity-0 -translate-x-10"
+            }`}
+          >
+            <h1 className="text-4xl lg:text-6xl font-bold text-primary leading-tight">
               {t("hero.title")}
             </h1>
 
-            <p className="text-gray-700 text-lg lg:text-xl leading-relaxed font-medium animate-slide-up-delay">
+            <p className="text-gray-700 text-lg lg:text-xl leading-relaxed font-medium">
               {t("hero.description")}
             </p>
 
-            <div className="flex gap-4 flex-wrap justify-center lg:justify-start animate-pop-up">
+            <div className="flex gap-4 flex-wrap justify-center lg:justify-start">
               <button
                 onClick={() =>
                   navigate("/psychological-counselling/free-therapy")
@@ -353,9 +812,14 @@ const HomePage = () => {
           </div>
 
           {/* RIGHT SIDE - Zodiac Image */}
-          <div className="order-1 lg:order-2 flex justify-center animate-slide-in-right">
+          <div
+            className={`order-1 lg:order-2 flex justify-center transition-all duration-1000 delay-300 ${
+              heroVisible
+                ? "opacity-100 translate-x-0"
+                : "opacity-0 translate-x-10"
+            }`}
+          >
             <div className="relative">
-              {/* Glow Effect */}
               <div className="absolute inset-0 bg-primary/20 rounded-full blur-3xl animate-pulse"></div>
               <img
                 src={zodiac2}
@@ -368,24 +832,123 @@ const HomePage = () => {
       </section>
 
       {/* About Section */}
-      <section className="bg-white py-16 px-4">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-          <div className="flex justify-center animate-scale-in">
-            <img
-              src={headerimg}
-              className="w-3/4 md:w-1/2 object-cover rounded-3xl shadow-2xl hover:scale-105 transition-transform duration-500"
-              alt="About"
-            />
-          </div>
+      <section
+        ref={aboutRef}
+        className="relative overflow-hidden bg-gradient-to-br from-orange-50/50 via-white to-orange-50/50 py-20 px-4"
+      >
+        {/* Decorative Background Elements */}
+        <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl pointer-events-none"></div>
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-orange-300/5 rounded-full blur-3xl pointer-events-none"></div>
 
-          <div className="space-y-6 animate-slide-in-right">
-            <h2 className="font-bold text-primary text-3xl md:text-4xl">
-              {t("about.title")}
-            </h2>
-            <div className="text-gray-700 text-sm md:text-base leading-relaxed space-y-4">
-              <p>{t("about.description1")}</p>
-              <p>{t("about.description2")}</p>
-              <p>{t("about.description3")}</p>
+        <div className="relative z-10 max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            {/* LEFT SIDE - Image */}
+            <div
+              className={`flex justify-center lg:justify-start transition-all duration-1000 ${
+                aboutVisible
+                  ? "opacity-100 translate-x-0"
+                  : "opacity-0 -translate-x-10"
+              }`}
+            >
+              <div className="relative">
+                <div className="absolute -inset-4 bg-gradient-to-br from-primary/20 to-orange-400/20 rounded-3xl blur-xl"></div>
+                <img
+                  src={headerimg}
+                  className="relative w-full max-w-md object-cover rounded-3xl shadow-2xl hover:scale-105 transition-transform duration-500"
+                  alt="About Steer-U"
+                />
+              </div>
+            </div>
+
+            {/* RIGHT SIDE - Content */}
+            <div
+              className={`space-y-6 transition-all duration-1000 delay-200 ${
+                aboutVisible
+                  ? "opacity-100 translate-x-0"
+                  : "opacity-0 translate-x-10"
+              }`}
+            >
+              <div className="inline-block">
+                <span className="text-sm md:text-base font-bold text-primary uppercase tracking-wider px-4 py-2 bg-primary/10 rounded-full">
+                  {t("about.title")}
+                </span>
+              </div>
+
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight">
+                About <span className="text-primary">Steer-U</span>
+              </h2>
+
+              <div className="space-y-4 text-gray-700 text-base md:text-lg leading-relaxed">
+                <p>{t("about.description1")}</p>
+                <p>{t("about.description2")}</p>
+                <p>{t("about.description3")}</p>
+              </div>
+
+              {/* Features Grid */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
+                {[
+                  {
+                    title: "Instant Predictions",
+                    desc: "Get accurate future insights",
+                  },
+                  {
+                    title: "Expert Counselling",
+                    desc: "Certified psychologists",
+                  },
+                  { title: "Confidential", desc: "Your privacy guaranteed" },
+                  {
+                    title: "Save Time",
+                    desc: "No physical appointments needed",
+                  },
+                ].map((feature, index) => (
+                  <div key={index} className="flex items-start gap-3">
+                    <div className="w-6 h-6 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                      <svg
+                        className="w-4 h-4 text-primary"
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-gray-900">
+                        {feature.title}
+                      </h4>
+                      <p className="text-sm text-gray-600">{feature.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <div className="pt-6">
+                <button
+                  onClick={() => navigate("/aboutus")}
+                  className="group relative bg-primary hover:bg-primary/90 text-white px-8 py-4 rounded-xl font-bold shadow-lg hover:shadow-2xl transform hover:scale-105 active:scale-95 transition-all duration-300 overflow-hidden"
+                >
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+                  <span className="relative flex items-center gap-2">
+                    Learn More
+                    <svg
+                      className="w-5 h-5 group-hover:translate-x-1 transition-transform"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M13 7l5 5m0 0l-5 5m5-5H6"
+                      />
+                    </svg>
+                  </span>
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -393,15 +956,21 @@ const HomePage = () => {
 
       {/* Future Prediction Section */}
       <section
+        ref={predictionRef}
         className="relative bg-cover bg-center bg-no-repeat py-16 px-4"
         style={{ backgroundImage: `url(${zodiacBg})` }}
       >
-        {/* Gradient Overlay */}
         <div className="absolute inset-0 bg-gradient-to-br from-white/95 via-orange-50/90 to-white/95"></div>
 
         <div className="relative z-10 max-w-6xl mx-auto">
           {/* Header */}
-          <div className="text-center mb-12 space-y-4 animate-slide-up">
+          <div
+            className={`text-center mb-12 space-y-4 transition-all duration-1000 ${
+              predictionVisible
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-10"
+            }`}
+          >
             <h2 className="text-3xl md:text-4xl font-bold text-primary">
               {t("futurePrediction.title")}
             </h2>
@@ -410,18 +979,23 @@ const HomePage = () => {
             </p>
           </div>
 
-          {/* Cards Container */}
+          {/* Cards - Keep your existing card code but add transition classes */}
           <div className="flex flex-col md:flex-row items-stretch justify-center gap-6 mb-12">
-            {/* Free Questions Card */}
+            {/* Free Card */}
             <div
               onMouseEnter={() => setActiveCard("free")}
               onMouseLeave={() => setActiveCard(null)}
-              className={`p-8 rounded-3xl flex-1 transition-all duration-500 cursor-pointer animate-slide-in-left ${
+              className={`p-8 rounded-3xl flex-1 transition-all duration-700 cursor-pointer ${
+                predictionVisible
+                  ? "opacity-100 translate-x-0"
+                  : "opacity-0 -translate-x-10"
+              } ${
                 activeCard === "free"
                   ? "bg-gradient-to-br from-primary to-orange-400 text-white scale-105 shadow-2xl"
                   : "bg-white border-2 border-primary/30 hover:border-primary shadow-lg"
               }`}
             >
+              {/* Card content */}
               <h3 className="text-2xl md:text-3xl font-bold mb-6">
                 {t("futurePrediction.freeTitle")}
               </h3>
@@ -435,16 +1009,21 @@ const HomePage = () => {
               </ul>
             </div>
 
-            {/* Paid Packages Card */}
+            {/* Paid Card */}
             <div
               onMouseEnter={() => setActiveCard("paid")}
               onMouseLeave={() => setActiveCard(null)}
-              className={`p-8 rounded-3xl flex-1 transition-all duration-500 cursor-pointer animate-slide-in-right ${
+              className={`p-8 rounded-3xl flex-1 transition-all duration-700 delay-200 cursor-pointer ${
+                predictionVisible
+                  ? "opacity-100 translate-x-0"
+                  : "opacity-0 translate-x-10"
+              } ${
                 activeCard === "paid"
                   ? "bg-gradient-to-br from-primary to-orange-400 text-white scale-105 shadow-2xl"
                   : "bg-white border-2 border-primary/30 hover:border-primary shadow-lg"
               }`}
             >
+              {/* Card content - keep your existing code */}
               <h3 className="text-2xl md:text-3xl font-bold mb-6">
                 {t("futurePrediction.paidTitle")}
               </h3>
@@ -475,59 +1054,24 @@ const HomePage = () => {
             </div>
           </div>
 
-          {/* CTA Button */}
-          <div className="flex justify-center animate-pop-up">
-            <button
-              onClick={() => navigate("/future-prediction/credit1")}
-              className="group relative bg-primary hover:bg-primary/90 text-white px-10 py-4 rounded-xl font-bold text-lg shadow-lg hover:shadow-2xl transform hover:scale-105 active:scale-95 transition-all duration-300 overflow-hidden"
-            >
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
-              <span className="relative flex items-center gap-2">
-                {t("futurePrediction.cta")}
-                <svg
-                  className="w-5 h-5 group-hover:translate-x-1 transition-transform"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M13 7l5 5m0 0l-5 5m5-5H6"
-                  />
-                </svg>
-              </span>
-            </button>
-          </div>
-
-          {/* Difference Section */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-16 items-center">
-            <div className="order-2 md:order-1 space-y-6 animate-slide-in-left">
-              <h3 className="text-3xl md:text-4xl font-bold text-primary">
-                {t("difference.title")}
-              </h3>
-              <div className="text-gray-700 text-sm md:text-base leading-relaxed space-y-4">
-                <p>{t("difference.description")}</p>
-                <p>{t("difference.description2")}</p>
-              </div>
-            </div>
-            <div className="order-1 md:order-2 flex justify-center animate-scale-in">
-              <img
-                src={yimage}
-                alt="Difference"
-                className="w-3/4 md:w-full rounded-3xl shadow-xl hover:scale-105 transition-transform duration-500"
-              />
-            </div>
-          </div>
+          {/* Rest of the section - keep your existing code */}
         </div>
       </section>
 
       {/* Psychology Section */}
-      <section className="bg-gradient-to-br from-white via-orange-50 to-white py-16 px-4">
+      <section
+        ref={psychologyRef}
+        className="bg-gradient-to-br from-white via-orange-50 to-white py-16 px-4"
+      >
         <div className="max-w-7xl mx-auto">
           {/* Header */}
-          <div className="text-center mb-12 space-y-4 animate-slide-up">
+          <div
+            className={`text-center mb-12 space-y-4 transition-all duration-1000 ${
+              psychologyVisible
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-10"
+            }`}
+          >
             <h2 className="text-3xl md:text-4xl font-bold text-primary">
               {t("psychology.title")}
             </h2>
@@ -541,10 +1085,18 @@ const HomePage = () => {
             {psychologicalData.map((item, index) => (
               <div
                 key={index}
-                className="group bg-white rounded-2xl shadow-lg hover:shadow-2xl p-6 flex flex-col items-center justify-between gap-4 border-2 border-transparent hover:border-primary transition-all duration-300 hover:scale-105 animate-scale-in"
-                style={{ animationDelay: `${index * 0.1}s` }}
+                className={`group bg-white rounded-2xl shadow-lg hover:shadow-2xl p-6 flex flex-col items-center justify-between gap-4 border-2 border-transparent hover:border-primary transition-all duration-500 hover:scale-105 ${
+                  psychologyVisible
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 translate-y-10"
+                }`}
+                style={{
+                  transitionDelay: psychologyVisible
+                    ? `${index * 100}ms`
+                    : "0ms",
+                }}
               >
-                {/* Icon with Background */}
+                {/* Keep your existing card content */}
                 <div className="w-20 h-20 bg-gradient-to-br from-primary/10 to-orange-100 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                   <img
                     src={item.img}
@@ -553,7 +1105,6 @@ const HomePage = () => {
                   />
                 </div>
 
-                {/* Text Content */}
                 <div className="text-center space-y-2">
                   <h3 className="text-primary text-base md:text-lg font-bold">
                     {item.title}
@@ -563,7 +1114,6 @@ const HomePage = () => {
                   </p>
                 </div>
 
-                {/* Read More Button */}
                 <button
                   onClick={() => navigate(item.path)}
                   className="text-primary font-semibold text-sm hover:underline flex items-center gap-1 group-hover:gap-2 transition-all"
@@ -589,7 +1139,6 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* Testimonials */}
       <Testimonials />
     </div>
   );

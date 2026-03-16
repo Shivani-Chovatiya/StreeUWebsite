@@ -417,7 +417,7 @@ const Header = () => {
         </header>
       )}
       <header className="mb-24 font-poppins fixed top-0 left-0 w-full bg-white/95 backdrop-blur-md z-50 shadow-md border-b border-orange-100">
-        <div className="max-w-7xl mx-auto flex justify-between items-center px-4 md:px-6 py-3 md:py-4">
+        <div className=" mx-auto flex justify-between items-center px-4 md:px-6 py-3 md:py-4">
           {/* Logo */}
           <NavLink to="/" className="group">
             <img
