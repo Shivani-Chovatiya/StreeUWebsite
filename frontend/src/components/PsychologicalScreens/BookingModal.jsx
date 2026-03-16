@@ -626,7 +626,9 @@ const BookingModal = ({
                 </div>
               </>
             )}
-            {step === "intake" && <IntakeForm onSubmit={handleIntakeSubmit} />}
+            {step === "intake" && (
+              <IntakeForm onSubmit={handleIntakeSubmit} userData={userData} />
+            )}
             {step === "paymentSuccess" && (
               <PaymentSuccessModal
                 onClose={() => {

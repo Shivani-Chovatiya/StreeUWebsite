@@ -25,14 +25,14 @@ const FUTURE_PREDICTION_ITEMS = [
     labelKey: "header.futurePrediction3Credit",
     path: "/future-prediction/credit3",
   },
-  {
-    labelKey: "header.futurePredictionCustomized",
-    path: "/future-prediction/customizedQuestion",
-  },
-  {
-    labelKey: "header.futurePredictionBirthTime",
-    path: "/future-predictionscreen/Birth_Rectification",
-  },
+  // {
+  //   labelKey: "header.futurePredictionCustomized",
+  //   path: "/future-prediction/customizedQuestion",
+  // },
+  // {
+  //   labelKey: "header.futurePredictionBirthTime",
+  //   path: "/future-predictionscreen/Birth_Rectification",
+  // },
   {
     labelKey: "header.futurePredictionCompatibility",
     path: "/future-predictionscreen/Compatibility",
@@ -304,13 +304,13 @@ const Header = () => {
                 )}
               </li>
 
-              <NavLink to="/contactus">
+              {/* <NavLink to="/contactus">
                 <li
                   className={`${location.pathname === "/contactus" ? "underline" : ""} text-black`}
                 >
                   {t("header.contact")}
                 </li>
-              </NavLink>
+              </NavLink> */}
               <NavLink to="/pricing">
                 <li
                   className={`${location.pathname === "/pricing" ? "underline" : ""} text-black`}
@@ -580,7 +580,7 @@ const Header = () => {
               )}
             </li>
 
-            <NavLink to="/contactus">
+            {/* <NavLink to="/contactus">
               <li className="group relative text-black hover:text-primary transition-colors duration-300">
                 {t("header.contact")}
                 <span
@@ -591,7 +591,7 @@ const Header = () => {
                   }`}
                 ></span>
               </li>
-            </NavLink>
+            </NavLink> */}
 
             <NavLink to="/pricing">
               <li className="group relative text-black hover:text-primary transition-colors duration-300">
@@ -890,13 +890,13 @@ const Header = () => {
             )}
           </div>
 
-          <NavLink to="/contactus" onClick={() => setShowSidebar(false)}>
+          {/* <NavLink to="/contactus" onClick={() => setShowSidebar(false)}>
             <h1
               className={location.pathname === "/contactus" ? "underline" : ""}
             >
               {t("header.contact")}
             </h1>
-          </NavLink>
+          </NavLink> */}
           <NavLink to="/pricing" onClick={() => setShowSidebar(false)}>
             <h1 className={location.pathname === "/pricing" ? "underline" : ""}>
               {t("header.pricing")}
@@ -1069,13 +1069,13 @@ const Header = () => {
                 </div>
               )}
 
-              <NavLink
+              {/* <NavLink
                 to="/contactus"
                 onClick={() => setShowSidebar(false)}
                 className="px-6 py-3 hover:bg-[#FBECE0]"
               >
                 {t("header.contact")}
-              </NavLink>
+              </NavLink> */}
 
               <NavLink
                 to="/pricing"
@@ -1285,13 +1285,13 @@ const Header = () => {
                 </div>
               </div>
 
-              <NavLink
+              {/* <NavLink
                 to="/contactus"
                 onClick={() => setShowSidebar(false)}
                 className="px-6 py-3 hover:bg-[#FBECE0] hover:text-primary hover:pl-8 transition-all duration-300 border-b border-gray-50 animate-slide-in-left [animation-delay:260ms]"
               >
                 {t("header.contact")}
-              </NavLink>
+              </NavLink> */}
 
               <NavLink
                 to="/pricing"

@@ -30,7 +30,7 @@ import { toast } from "react-toastify";
 import { StandaloneSearchBox, useJsApiLoader } from "@react-google-maps/api";
 import { useRef } from "react";
 
-const CREDIT_OPTIONS = ["Compatibility", "Birth_Rectification"];
+const CREDIT_OPTIONS = ["Compatibility"]; //"Birth_Rectification"
 const PREDICTION_QUESTIONS = [
   "question1",
   "question2",

@@ -193,7 +193,7 @@ export default {
         "bounce-small": "bounce-small 0.5s ease-in-out",
         "bounce-gentle": "bounce-gentle 2s ease-in-out infinite",
         "pop-up": "pop-up 0.5s ease-out 0.4s backwards",
-        "spin-slow": "spin-slow 20s linear infinite",
+        "spin-slow": "spin-slow 30s linear infinite",
         "gradient-x": "gradient-x 3s ease infinite",
         "scale-in": "scale-in 0.5s ease-out",
         blob: "blob 7s infinite",

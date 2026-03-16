@@ -327,8 +327,6 @@ const InviteFriend = () => {
   const getReferralCode = async (userData) => {
     const user = userData ? userData : auth.currentUser;
     if (!user) {
-      toast.error("Please login first");
-      setShowLogin(true);
       return;
     }
 
@@ -353,6 +351,11 @@ const InviteFriend = () => {
   }, []);
 
   const handleInvite = () => {
+    if (!referralCode || referralCode === "") {
+      toast.error("Please login first");
+      setShowLogin(true);
+      return;
+    }
     const message = `Hey! 😊  
 Join Steer-U and get free astrology insights.  
 
@@ -419,7 +422,7 @@ Sign up here 👉 http://localhost:5174/profile?referralCode=${referralCode}`;
             {/* CTA Button */}
             <button
               onClick={handleInvite}
-              className="group relative w-full md:w-auto bg-primary hover:bg-primary/90 text-white font-bold text-lg px-8 py-4 rounded-xl shadow-lg hover:shadow-2xl transform hover:scale-105 active:scale-95 transition-all duration-300 overflow-hidden"
+              className="group relative w-full md:w-auto bg-primary hover:bg-primary/90 text-white font-bold text-lg px-2 py-2 md:px-8 md:py-4 rounded-xl shadow-lg hover:shadow-2xl transform hover:scale-105 active:scale-95 transition-all duration-300 overflow-hidden"
             >
               {/* Shimmer Effect */}
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>

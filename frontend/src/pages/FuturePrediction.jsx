@@ -18,7 +18,7 @@ import {
 } from "firebase/firestore";
 import { auth, db } from "../config/firebase";
 import { onAuthStateChanged, signOut } from "firebase/auth";
-const CREDIT_OPTIONS = ["credit1", "credit2", "credit3", "customizedQuestion"];
+const CREDIT_OPTIONS = ["credit1", "credit2", "credit3"]; //"customizedQuestion"
 import Swal from "sweetalert2";
 import QuestionAccordion from "./QuestionAccordion";
 

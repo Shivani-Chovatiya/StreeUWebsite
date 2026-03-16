@@ -774,7 +774,7 @@ const HomePage = () => {
         <div className="absolute top-0 right-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-blob"></div>
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-orange-300/10 rounded-full blur-3xl animate-blob animation-delay-2000"></div>
 
-        <div className="relative z-10 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="relative z-10 p-3 md:p-6 mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* LEFT SIDE - Text Content */}
           <div
             className={`order-2 lg:order-1 text-center lg:text-left space-y-6 transition-all duration-1000 ${
@@ -783,11 +783,11 @@ const HomePage = () => {
                 : "opacity-0 -translate-x-10"
             }`}
           >
-            <h1 className="text-4xl lg:text-6xl font-bold text-primary leading-tight">
+            <h1 className="text-2xl lg:text-4xl font-bold text-primary leading-tight">
               {t("hero.title")}
             </h1>
 
-            <p className="text-gray-700 text-lg lg:text-xl leading-relaxed font-medium">
+            <p className="text-gray-700 text-sm lg:text-xl leading-relaxed font-medium">
               {t("hero.description")}
             </p>
 
@@ -796,7 +796,7 @@ const HomePage = () => {
                 onClick={() =>
                   navigate("/psychological-counselling/free-therapy")
                 }
-                className="group relative bg-primary hover:bg-primary/90 text-white px-8 py-4 rounded-xl font-bold text-lg shadow-lg hover:shadow-2xl transform hover:scale-105 active:scale-95 transition-all duration-300 overflow-hidden"
+                className="group relative bg-primary hover:bg-primary/90 text-white px-4 py-2 md:px-8 md:py-4 rounded-xl font-bold text-lg shadow-lg hover:shadow-2xl transform hover:scale-105 active:scale-95 transition-all duration-300 overflow-hidden"
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
                 <span className="relative">{t("hero.btnTherapy")}</span>
@@ -804,7 +804,7 @@ const HomePage = () => {
 
               <button
                 onClick={() => navigate("/future-prediction/credit1")}
-                className="group border-2 border-primary text-primary px-8 py-4 rounded-xl font-bold text-lg hover:bg-primary hover:text-white transform hover:scale-105 active:scale-95 transition-all duration-300"
+                className="group border-2 border-primary text-primary px-4 py-2 md:px-8 md:py-4 rounded-xl font-bold text-lg hover:bg-primary hover:text-white transform hover:scale-105 active:scale-95 transition-all duration-300"
               >
                 {t("hero.btnPredict")}
               </button>
@@ -928,7 +928,7 @@ const HomePage = () => {
               <div className="pt-6">
                 <button
                   onClick={() => navigate("/aboutus")}
-                  className="group relative bg-primary hover:bg-primary/90 text-white px-8 py-4 rounded-xl font-bold shadow-lg hover:shadow-2xl transform hover:scale-105 active:scale-95 transition-all duration-300 overflow-hidden"
+                  className="group relative bg-primary hover:bg-primary/90 text-white px-4 py-2 md:px-8 md:py-4 rounded-xl font-bold shadow-lg hover:shadow-2xl transform hover:scale-105 active:scale-95 transition-all duration-300 overflow-hidden"
                 >
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
                   <span className="relative flex items-center gap-2">

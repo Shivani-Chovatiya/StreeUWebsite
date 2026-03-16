@@ -272,18 +272,12 @@
       "servicesTitle": "SERVICES",
       "services": [
         { "label": "Future Prediction", "path": "/future-prediction/credit1" },
-        {
-          "label": "Compatibility",
-          "path": "/future-predictionscreen/Compatibility"
-        },
+
         {
           "label": "Hypnotherapy",
           "path": "/psychological-counselling/hypnotherapy"
         },
-        {
-          "label": "Birth Time Rectification",
-          "path": "/future-predictionscreen/Birth_Rectification"
-        },
+
         {
           "label": "Free Therapy",
           "path": "/psychological-counselling/free-therapy"

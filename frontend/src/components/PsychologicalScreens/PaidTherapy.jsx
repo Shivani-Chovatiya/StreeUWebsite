@@ -73,6 +73,7 @@ const PaidTherapy = () => {
       const q = query(
         collection(db, "therapists"),
         where("status", "==", "Active"),
+        where("type", "==", "normal"),
       );
 
       const querySnapshot = await getDocs(q);
@@ -208,7 +209,7 @@ const PaidTherapy = () => {
               return (
                 <div
                   key={String(index + 1)}
-                  className="group bg-gradient-to-br from-white to-orange-50 rounded-2xl border-2 border-primary/30 p-5 md:p-6 shadow-md hover:shadow-2xl hover:border-primary transition-all duration-300 hover:scale-105 animate-scale-in"
+                  className="group bg-gradient-to-br from-white to-orange-50 rounded-2xl border-2 border-primary/30 p-5 md:p-6 shadow-md hover:shadow-2xl hover:border-primary transition-all duration-300 hover:scale-105 animate-scale-in flex flex-col"
                   style={{ animationDelay: `${index * 0.15}s` }}
                 >
                   {/* Header with Avatar & Name */}
@@ -389,7 +390,7 @@ const PaidTherapy = () => {
                   </div>
 
                   {/* View Details Button */}
-                  <button
+                  {/* <button
                     onClick={() => {
                       if (!isLoggedIn) {
                         setShowLogin(true);
@@ -400,7 +401,37 @@ const PaidTherapy = () => {
                     }}
                     className="w-full group relative bg-primary hover:bg-primary/90 text-white font-semibold py-3 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden"
                   >
-                    {/* Shimmer Effect */}
+                    
+                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+
+                    <span className="relative flex items-center justify-center gap-2">
+                      {t("psychology.viewDetails")}
+                      <svg
+                        className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M13 7l5 5m0 0l-5 5m5-5H6"
+                        />
+                      </svg>
+                    </span>
+                  </button> */}
+                  <button
+                    onClick={() => {
+                      if (!isLoggedIn) {
+                        setShowLogin(true);
+                      } else {
+                        setTherapistDetails(item);
+                        setOpen(true);
+                      }
+                    }}
+                    className="mt-auto w-full group relative bg-primary hover:bg-primary/90 text-white font-semibold py-3 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden"
+                  >
                     <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
 
                     <span className="relative flex items-center justify-center gap-2">

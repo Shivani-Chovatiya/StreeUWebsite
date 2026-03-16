@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 
-const IntakeForm = ({ onSubmit }) => {
+const IntakeForm = ({ onSubmit, userData }) => {
   const [supportPersons, setSupportPersons] = useState([
     { name: "", relation: "" },
   ]);
@@ -31,7 +31,24 @@ const IntakeForm = ({ onSubmit }) => {
     medicalAnswers: initialAnswers,
     confirmInformation: false,
   });
+  useEffect(() => {
+    if (userData) {
+      const nameParts = userData.fullName ? userData.fullName.split(" ") : [];
 
+      setFormData((prev) => ({
+        ...prev,
+        firstName: nameParts[0] || "",
+        lastName: nameParts.slice(1).join(" ") || "",
+        preferredName: nameParts[0] || "",
+        dob: userData.dob
+          ? new Date(userData.dob).toISOString().split("T")[0]
+          : "",
+        gender:
+          userData.gender?.charAt(0).toUpperCase() +
+            userData.gender?.slice(1) || "",
+      }));
+    }
+  }, [userData]);
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
 
@@ -151,6 +168,7 @@ const IntakeForm = ({ onSubmit }) => {
               name="preferredName"
               className="input-style"
               onChange={handleChange}
+              value={formData.preferredName}
               placeholder="What should we call you?"
             />
           </div>
@@ -161,6 +179,7 @@ const IntakeForm = ({ onSubmit }) => {
               type="date"
               className="input-style"
               name="dob"
+              value={formData.dob}
               onChange={handleChange}
             />
           </div>
@@ -171,6 +190,7 @@ const IntakeForm = ({ onSubmit }) => {
               className="input-style"
               name="gender"
               onChange={handleChange}
+              value={formData.gender}
             >
               <option value="">Select</option>
               <option value="Male">Male</option>
@@ -185,6 +205,7 @@ const IntakeForm = ({ onSubmit }) => {
               type="email"
               className="input-style"
               placeholder="name@example.com"
+              value={formData.email}
               onChange={(e) =>
                 setFormData({ ...formData, email: e.target.value })
               }

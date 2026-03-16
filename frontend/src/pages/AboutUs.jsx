@@ -634,15 +634,15 @@ const AboutUs = () => {
       </div>
 
       {/* Membership Section */}
-      <div
+      {/* <div
         ref={membershipRef}
         className="relative bg-cover bg-center bg-no-repeat flex items-center justify-center min-h-[450px] py-16 px-4"
         style={{ backgroundImage: `url(${bgWheel})` }}
       >
-        {/* Colored Overlay */}
+        
         <div className="absolute inset-0 bg-gradient-to-br from-orange-200/40 to-orange-100/30"></div>
 
-        {/* Content */}
+        
         <div
           className={`relative z-10 max-w-3xl mx-auto text-center space-y-6 transition-all duration-1000 ${
             membershipVisible ? "opacity-100 scale-100" : "opacity-0 scale-90"
@@ -655,12 +655,12 @@ const AboutUs = () => {
             {t("aboutus.membershipDescription")}
           </p>
           <button className="group relative bg-primary hover:bg-primary/90 text-white font-bold text-lg px-10 py-4 rounded-xl shadow-lg hover:shadow-2xl transform hover:scale-105 active:scale-95 transition-all duration-300 overflow-hidden">
-            {/* Shimmer Effect */}
+           
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 pointer-events-none"></div>
             <span className="relative">{t("aboutus.membershipButton")}</span>
           </button>
         </div>
-      </div>
+      </div> */}
 
       {/* Stats Section */}
       <div
