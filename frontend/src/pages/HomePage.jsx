@@ -1083,7 +1083,8 @@ const HomePage = () => {
           {/* Cards Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
             {psychologicalData.map((item, index) => (
-              <div
+              <button
+                onClick={() => navigate(item.path)}
                 key={index}
                 className={`group bg-white rounded-2xl shadow-lg hover:shadow-2xl p-6 flex flex-col items-center justify-between gap-4 border-2 border-transparent hover:border-primary transition-all duration-500 hover:scale-105 ${
                   psychologyVisible
@@ -1133,7 +1134,7 @@ const HomePage = () => {
                     />
                   </svg>
                 </button>
-              </div>
+              </button>
             ))}
           </div>
         </div>

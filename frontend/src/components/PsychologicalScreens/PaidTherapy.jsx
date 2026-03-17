@@ -327,7 +327,7 @@ const PaidTherapy = () => {
                     </div>
 
                     {/* Service Type */}
-                    <div className="flex items-start gap-2">
+                    {/* <div className="flex items-start gap-2">
                       <div className="w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
                         <svg
                           className="w-4 h-4 text-primary"
@@ -349,7 +349,7 @@ const PaidTherapy = () => {
                           {item.serviceType}
                         </p>
                       </div>
-                    </div>
+                    </div> */}
 
                     {/* Languages */}
                     <div className="flex items-start gap-2">
