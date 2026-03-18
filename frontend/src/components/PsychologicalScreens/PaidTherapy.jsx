@@ -73,7 +73,7 @@ const PaidTherapy = () => {
       const q = query(
         collection(db, "therapists"),
         where("status", "==", "Active"),
-        where("type", "==", "normal"),
+        where("serviceType", "==", "Phycological Therapy"),
       );
 
       const querySnapshot = await getDocs(q);
@@ -223,7 +223,9 @@ const PaidTherapy = () => {
                           className="w-full h-full rounded-full object-cover"
                         />
                       ) : (
-                        index + 1
+                        <h1 className="text-primary ">
+                          {item?.name?.charAt(0)?.toUpperCase()}
+                        </h1>
                       )}
                     </div>
 

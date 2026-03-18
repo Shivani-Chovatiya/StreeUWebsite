@@ -414,11 +414,17 @@ export default function SessionCard({
           <div className="flex items-center gap-4">
             {/* Profile */}
             <div className="w-12 h-12 rounded-full bg-[#F3D0BE] flex items-center justify-center">
-              <img
-                src={session?.therapist?.imageUrl}
-                alt={therapistName}
-                className="w-3/4 h-3/4 p-2"
-              />
+              {session?.therapist?.imageUrl ? (
+                <img
+                  src={session?.therapist?.imageUrl}
+                  alt={therapistName}
+                  className="w-3/4 h-3/4 p-2"
+                />
+              ) : (
+                <h1 className="text-primary ">
+                  {session?.therapist?.name?.charAt(0)?.toUpperCase()}
+                </h1>
+              )}
             </div>
 
             <h2 className="text-xl font-semibold">{therapistName}</h2>

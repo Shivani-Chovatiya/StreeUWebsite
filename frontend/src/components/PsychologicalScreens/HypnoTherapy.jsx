@@ -66,7 +66,7 @@ const HypnoTherapy = () => {
       const q = query(
         collection(db, "therapists"),
         where("status", "==", "Active"),
-        where("type", "==", "hypnotherapist"),
+        where("serviceType", "==", "HypnoTherapy"),
       );
 
       const querySnapshot = await getDocs(q);
